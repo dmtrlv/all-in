@@ -1,0 +1,41 @@
+.contentText {
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: normal;
+}
+
+.column {
+  margin: 0 20px 0 20px;
+
+  &.flex {
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+    margin: 0 !important;
+    &:not(:first-child) {
+      margin: 20px 0 0 0 !important;
+    }
+    justify-content: space-between;
+  }
+
+  &:first-child {
+    margin: 0 20px 0 0;
+  }
+
+  &:last-child {
+    margin: 0 0 0 20px;
+  }
+}
+
+.hideForMobile {
+  @media screen and (max-width: 690px){
+    display: none;
+  }
+}
+
+.hideForDesktop {
+  @media screen and (min-width: 691px) {
+    display: none;
+  }
+}
+

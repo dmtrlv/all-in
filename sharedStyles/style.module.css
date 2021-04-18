@@ -1,0 +1,66 @@
+.frameWrapper {
+  position: absolute;
+  left: 0;
+  display: flex;
+  margin: 60px 80px 0 0;
+
+  @media screen and (max-width: 690px) {
+    flex-direction: column;
+    margin: 20px 0 0 0;
+    position: inherit;
+    align-items: center;
+  }
+}
+
+.navigationBlock {
+  margin: 0 54px 0 0;
+}
+
+.content {
+  display: flex;
+  width: 100%;
+  margin: 0 0 0 54px;
+
+  &.directionColumn {
+    flex-direction: column;
+  }
+}
+
+.accordionsBlock {
+  display: flex;
+  flex-direction: column;
+  margin: 80px 0 90px 0;
+  width: 100%;
+
+  .accordion {
+    &:not(:last-child) {
+      margin: 0 0 70px 0;
+    }
+  }
+}
+
+.sloganBlock {
+  padding: 13px 0;
+  background: black;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+
+  .slogan {
+    color: #ffffff;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 14px;
+  }
+}
+
+.accent {
+  position: absolute;
+  right: -6px;
+  top: 13px;
+  font-weight: 900;
+  font-size: 24px;
+}

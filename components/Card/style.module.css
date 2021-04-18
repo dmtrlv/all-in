@@ -1,0 +1,180 @@
+.cardWrapper{
+  position: relative;
+  width: 237px;
+  height: 100%;
+  max-height: 160px;
+  min-height: 160px;
+  background: white;
+  box-shadow: 0 4px 2px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  overflow: hidden;
+  transition: min-height 0.5s ease-in-out;
+
+  &.withFullWidth {
+    width: 514px;
+
+    &.active {
+      min-height: 340px;
+      transition: min-height 0.5s ease-in-out;
+    }
+  }
+
+  &.small {
+    &.active {
+      min-height: 180px;
+      transition: min-height 0.5s ease-in-out;
+    }
+  }
+
+  &.active {
+    min-height: 300px;
+    transition: min-height 0.5s ease-in-out;
+  }
+
+  &.withTopGap {
+    margin-top: 40px;
+  }
+
+  @media screen and (max-width: 690px){
+    right: 0;
+    transition: min-height 0.5s ease-in-out 0.35s, right 0.5s ease-in-out;
+    &.active {
+      transition: min-height 0.5s ease-in-out, right 0.5s ease-in-out 0.35s;
+      position: relative;
+      right: -25px;
+    }
+  }
+}
+
+.titleBlock {
+  position: relative;
+  height: 160px;
+  width: 100%;
+
+  &.center {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.cardTitle {
+  color: var(--colorGray);
+  font-weight: normal;
+  width: 100%;
+  position: relative;
+
+  .extraTitle {
+    margin: 52px 0 0 0;
+  }
+
+  &.active {
+    color: black;
+  }
+
+  &.invert {
+    color: white;
+    -webkit-text-stroke: 1px black;
+  }
+
+  /* position */
+  &.leftTop {
+    top: -6px;
+    left: -8px;
+  }
+
+  &.rightTop {
+    display: flex;
+    transform: rotate(90deg);
+    top: 0;
+    left: 130px;
+  }
+
+  &.center {
+    margin: 0 auto;
+  }
+
+  &.bottomLeft {
+    top: 29px;
+    left: -32px;
+    transform: rotate(-90deg);
+    word-break: break-word;
+  }
+
+  &.bottom {
+    top: 90px
+  }
+
+  /* align */
+  &.alignRight {
+    text-align: right;
+  }
+
+  &.alignCenter {
+    text-align: center;
+  }
+
+  /* font-weight */
+  &.bold {
+    font-weight: 900;
+  }
+
+  /* font-size */
+
+  &.extraLg {
+    font-size: 78px;
+    line-height: 78px;
+  }
+
+  &.large {
+    font-size: 40px;
+    line-height: 40px
+  }
+
+  &.medium {
+    font-size: 36px;
+    line-height: 36px;
+  }
+
+  &.normal {
+    font-size: 25px;
+    line-height: 25px;
+  }
+
+  &.small {
+    font-size: 13px;
+    line-height: 13px;
+  }
+}
+
+.cardInfo {
+  padding: 20px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: white;
+
+  &.withWhiteBg {
+    padding: 10px 20px 20px 20px;
+    background: white;
+  }
+}
+
+.infoBlock {
+  display: flex;
+  justify-content: space-between;
+
+  &:first-child {
+    margin: 0 0 16px 0;
+  }
+
+  .infoName {
+    font-weight: 300;
+    font-size: 16px;
+    color: black;
+  }
+  .value {
+    font-weight: 400;
+    font-size: 16px;
+    color: black;
+  }
+}

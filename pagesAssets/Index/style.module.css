@@ -1,0 +1,21 @@
+.pageContainer {
+  position: relative;
+  height: 100vh;
+  display: block;
+  overflow-y: hidden;
+  overflow-x: hidden;
+
+  @media screen and (max-width: 690px) {
+    overflow-y: auto;
+  }
+}
+
+.pageWrapper {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  @media screen and (max-width: 690px) {
+    max-width: 320px;
+  }
+}

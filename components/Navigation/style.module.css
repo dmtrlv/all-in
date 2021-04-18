@@ -1,0 +1,40 @@
+.navigationWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.navigationItem {
+  color: black;
+  padding: 20px 20px 20px 0;
+  display: flex;
+  justify-content: flex-end;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+  transition: background 1.2s ease-in-out, color 0.8s ease-in-out, font-weight 0.4s ease-in-out;
+
+  &:not(:last-child) {
+    margin: 0 0 110px 0;
+  }
+
+  &.active {
+    background: black;
+    color: white;
+    font-weight: 500;
+    transition: background 1.2s ease-in-out, color 0.8s ease-in-out, font-weight 0.4s ease-in-out;
+  }
+
+  &.disabled {
+    pointer-events: none;
+    color: var(--colorLightGray);
+  }
+
+  &:hover {
+    color: var(--colorLightGray);
+    transition: color 0.25s ease-in-out;
+  }
+}

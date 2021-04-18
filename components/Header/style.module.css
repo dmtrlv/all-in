@@ -1,0 +1,28 @@
+.headerWrapper {
+  margin: 20px 80px 20px 270px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  @media screen and (max-width: 690px) {
+    margin: 20px 0;
+  }
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  @media screen and (max-width: 690px) {
+    justify-content: center;
+  }
+}
+
+.headerNavigation {
+  margin: 0 0 0 108px;
+
+  @media screen and (max-width: 690px) {
+    margin: 0;
+  }
+}
