@@ -37,8 +37,11 @@ const Index = () => {
           name="description"
           content="All IN - это не просто барбершоп.Это место, в котором мы собрали профессионалов с многолетним опытом работы и им доверяем.Мы создали пространство где можно не думать о результате, потому что он всегда будет предвосхищать, ведь за вашу голову мы отвечаем своей."
         />
-        <meta name="viewport" content="width=device-width" />
         <link rel="icon" href="/header/all-in-logo.svg" />
+        <meta name='viewport' content='width=device-width,initial-scale=1:2'/>
+        <meta content='true' name='HandheldFriendly'/>
+        <meta content='width' name='MobileOptimized'/>
+        <meta content='yes' name='apple-mobile-web-app-capable'/>
       </Head>
       <div className={styles.pageContainer}>
         <div className={styles.pageWrapper}>

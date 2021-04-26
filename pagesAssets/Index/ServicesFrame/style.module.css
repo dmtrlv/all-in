@@ -12,10 +12,14 @@
     flex-direction: row;
     flex-flow: row wrap;
     margin: 0 !important;
+
+    :nth-child(2) {
+      margin: 0 0 0 40px;
+    }
+
     &:not(:first-child) {
       margin: 20px 0 0 0 !important;
     }
-    justify-content: space-between;
   }
 
   &:first-child {
