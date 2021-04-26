@@ -5,6 +5,22 @@
   width: 635px;
   height: 448px;
   overflow: hidden;
+  touch-action: pan-y;
+  transform: translateX(0);
+  opacity: 1;
+  transition: transform 0.3s ease-in-out,opacity 0.01s ease;
+
+  &.out {
+    opacity: 0;
+    transform: translateX(-400px);
+    transition: transform 0.3s ease-in-out, opacity 0.01s ease 0.3s;
+  }
+
+  &.in {
+    opacity: 0;
+    transform: translateX(400px);
+    transition: transform 0.3s ease-in-out, opacity 0.01s ease 0.3s;
+  }
 
   &.reverse {
     flex-direction: column-reverse;
