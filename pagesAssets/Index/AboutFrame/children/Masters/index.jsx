@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import cn from 'classnames';
 import { useSwipeable } from "react-swipeable";
 
@@ -90,12 +90,28 @@ const cards = {
 
 const Masters = () => {
   const [activeCard, setCard] = useState(0);
-  const ref = useRef();
+  const [cardOut, setCardOut] = useState(false);
+  const [cardIn, setCardIn] = useState(false);
   const handlers = useSwipeable({
-    onSwipedLeft: () => setCard(activeCard + 1),
-    onSwipedRight: () => setCard(activeCard - 1),
+    onSwipedLeft: () => [
+      setCardOut(true),
+      setTimeout(() => {
+        activeCard === 7 ?   setCard(0) : setCard(activeCard + 1);
+        setCardIn(true);
+        setCardOut(false);
+      }, 300),
+      setTimeout(() =>  setCardIn(false), 500),
+    ],
+    onSwipedRight:() => [
+      setCardIn(true),
+      setTimeout(() => {
+        activeCard === 0 ? setCard(7) : setCard(activeCard - 1);
+        setCardOut(true);
+        setCardIn(false);
+      },300),
+      setTimeout(() =>  setCardOut(false), 500),
+    ],
     trackTouch: true,
-    trackMouse: true,
   });
 
   const {
@@ -103,9 +119,11 @@ const Masters = () => {
   } = cards[activeCard];
 
   return (
-    <div className={styles.contentBlock}>
-      <div {...handlers} ref={ref} className={cn(styles.card, {
+    <>
+      <div {...handlers} className={cn(styles.card, {
         [styles.reverse]: activeCard === 0,
+        [styles.out]: cardOut,
+        [styles.in]: cardIn,
       })}
       >
         <div className={styles.content}>
@@ -129,7 +147,7 @@ const Masters = () => {
           />
         ))}
       </div>
-    </div>
+    </>
   );
 };
 
