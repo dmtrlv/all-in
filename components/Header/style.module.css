@@ -1,5 +1,5 @@
 .headerWrapper {
-  margin: 20px 80px 20px 270px;
+  margin: 20px 80px;
   display: flex;
   justify-content: center;
   position: relative;
@@ -12,6 +12,7 @@
 .headerContent {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   width: 100%;
 
   @media screen and (max-width: 690px) {

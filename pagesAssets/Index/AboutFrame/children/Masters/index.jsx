@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import cn from 'classnames';
+import { useSwipeable } from "react-swipeable";
 
 // styles
 import styles from './style.module.css';
@@ -89,13 +90,21 @@ const cards = {
 
 const Masters = () => {
   const [activeCard, setCard] = useState(0);
+  const ref = useRef();
+  const handlers = useSwipeable({
+    onSwipedLeft: () => setCard(activeCard + 1),
+    onSwipedRight: () => setCard(activeCard - 1),
+    trackTouch: true,
+    trackMouse: true,
+  });
 
   const {
     title, description, content, image,
   } = cards[activeCard];
+
   return (
     <div className={styles.contentBlock}>
-      <div className={cn(styles.card, {
+      <div {...handlers} ref={ref} className={cn(styles.card, {
         [styles.reverse]: activeCard === 0,
       })}
       >
