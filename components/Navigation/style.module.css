@@ -18,7 +18,7 @@
   transition: background 1.2s ease-in-out, color 0.8s ease-in-out, font-weight 0.4s ease-in-out;
 
   &:not(:last-child) {
-    margin: 0 0 110px 0;
+    margin: 0 0 80px 0;
   }
 
   &.active {

@@ -26,7 +26,7 @@ const Header = () => {
       dispatch(setLogoPositionToLeft(logoPosition.width + logoPosition.x));
       dispatch(setFirstHeaderItemPosToLeft(null));
     }
-  }, [isMobile]);
+  }, [isMobile, screen]);
 
   return (
     <div className={styles.headerWrapper}>
