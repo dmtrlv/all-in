@@ -18,7 +18,7 @@
   max-width: fit-content;
   transition: max-width 0.8s ease-in-out;
   position: relative;
-  z-index: 5;
+  z-index: 12;
   background: white;
 
   &.fullWidth {
