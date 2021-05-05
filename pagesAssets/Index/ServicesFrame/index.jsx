@@ -81,6 +81,7 @@ const ServicesFrame = () => {
                     content={item.content}
                     time={item.time}
                     price={item.price}
+                    withRightGap={item.withRightGap}
                     withTopGap={item.withTopGap}
                     onClick={(e) => setActiveCard(e)}
                     titlePos={item.titlePos}

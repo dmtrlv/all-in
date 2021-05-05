@@ -200,6 +200,7 @@ const content = {
           titleMaxWidth: 108,
           titleAlign: 'alignRight',
           titleInvert: false,
+          withRightGap: true,
         },
 
         {
@@ -379,7 +380,7 @@ const content = {
           </span>
         ),
         extraTitle: '',
-        withFullWidth: false,
+        withFullWidth: true,
         withTopGap: true,
         titlePos: 'leftTop',
         titleWeight: 'bold',
