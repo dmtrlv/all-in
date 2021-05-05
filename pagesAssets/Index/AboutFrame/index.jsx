@@ -56,7 +56,7 @@ const AboutFrame = () => {
               tabWidth={logoPosition}
             />
           </div>
-          <div className={sharedStyles.content}>
+          <div className={cn(sharedStyles.content, sharedStyles.directionColumn)}>
             {contentMap[activeTab]}
           </div>
         </>
