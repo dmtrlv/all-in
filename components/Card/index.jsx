@@ -24,6 +24,7 @@ const propTypes = {
   content: PropTypes.string,
   className: PropTypes.string,
   isSmall: PropTypes.bool,
+  withRightGap: PropTypes.bool,
 };
 
 const defaultProps = {
@@ -44,6 +45,7 @@ const defaultProps = {
   content: '',
   className: '',
   isSmall: false,
+  withRightGap: false,
 };
 
 const Card = ({
@@ -52,6 +54,7 @@ const Card = ({
   time,
   price,
   withTopGap,
+  withRightGap,
   active,
   id,
   onClick,
@@ -69,6 +72,7 @@ const Card = ({
   <div
     className={cn(styles.cardWrapper, {
       [styles.withTopGap]: withTopGap,
+      [styles.withRightGap]: withRightGap,
       [styles.active]: active,
       [styles.withFullWidth]: withFullWidth,
       [styles.small]: isSmall,
