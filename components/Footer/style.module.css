@@ -1,9 +1,11 @@
 .footerWrapper {
   display: flex;
-  position: absolute;
+  position: fixed;
+  background: white;
   bottom: 0;
   width: 1440px;
   justify-content: flex-end;
+  z-index: 9;
 
   @media screen and (max-width: 690px) {
     position: inherit;
