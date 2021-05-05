@@ -1,6 +1,5 @@
 .widgetCard {
   width: 100%;
-  min-width: 851px;
   background: #FFFFFF;
   box-shadow: 0 4px 2px rgba(0, 0, 0, 0.15);
   position: relative;
@@ -16,14 +15,15 @@
 .widget {
   height: 100%;
   width: 100%;
-  min-height: 375px;
+  min-height: 240px;
+  max-height: 255px;
   filter: grayscale(1);
 }
 
 .textBlock {
   padding: 0 25px;
   max-width: 740px;
-  margin: 45px 0;
+  margin: 20px 0;
 
   .text {
     font-weight: 300;
