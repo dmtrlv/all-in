@@ -78,7 +78,7 @@ const Card = ({
       [styles.small]: isSmall,
       [className]: true,
     })}
-    onClick={(e) => onClick(id, e)}
+    onClick={(e) => active ? () => {} : onClick(id, e)}
   >
     <div className={cn(styles.titleBlock, {
       [styles.center]: Boolean(titlePos === 'center'),
