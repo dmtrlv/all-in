@@ -48,19 +48,19 @@ const Footer = () => {
         <div className={styles.social}>
           <div className={styles.socialItem}>
             <div className={styles.phoneSvgBlock} onClick={() => setPhoneActive(!isPhoneActive)}>
-              <PhoneIconSVG color={isPhoneActive && !isMobile ? '#000000' : '#898989'} />
+              <a href="tel:89112871777" className={styles.link}>
+                <PhoneIconSVG color={isPhoneActive && !isMobile ? '#000000' : '#898989'} />
+                {!isMobile && (
+                  <div
+                    className={cn(styles.phone, {
+                      [styles.active]: isPhoneActive && !isMobile,
+                    })}
+                  >
+                    +7 (911) 287-17-77
+                  </div>
+                )}
+              </a>
             </div>
-            <a href="tel:89112871777" className={styles.link}>
-              {!isMobile && (
-              <div
-                className={cn(styles.phone, {
-                  [styles.active]: isPhoneActive && !isMobile,
-                })}
-              >
-                +7 (911) 287-17-77
-              </div>
-              )}
-            </a>
           </div>
           <div className={styles.socialItem}>
             <a className={styles.link} href="https://instagram.com/allinbarbers">

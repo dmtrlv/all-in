@@ -13,25 +13,30 @@ const Masters = () => {
   const [activeCard, setCard] = useState(0);
   const [cardOut, setCardOut] = useState(false);
   const [cardIn, setCardIn] = useState(false);
+
+  const prevCard = () => {
+    setCardIn(true);
+    setTimeout(() => {
+      activeCard === 0 ? setCard(7) : setCard(activeCard - 1);
+      setCardOut(true);
+      setCardIn(false);
+    },300);
+    setTimeout(() =>  setCardOut(false), 500);
+  }
+
+  const nextCard = () => {
+    setCardOut(true);
+    setTimeout(() => {
+      activeCard === 7 ?   setCard(0) : setCard(activeCard + 1);
+      setCardIn(true);
+      setCardOut(false);
+    }, 300);
+    setTimeout(() =>  setCardIn(false), 500);
+  }
+
   const handlers = useSwipeable({
-    onSwipedLeft: () => [
-      setCardOut(true),
-      setTimeout(() => {
-        activeCard === 7 ?   setCard(0) : setCard(activeCard + 1);
-        setCardIn(true);
-        setCardOut(false);
-      }, 300),
-      setTimeout(() =>  setCardIn(false), 500),
-    ],
-    onSwipedRight:() => [
-      setCardIn(true),
-      setTimeout(() => {
-        activeCard === 0 ? setCard(7) : setCard(activeCard - 1);
-        setCardOut(true);
-        setCardIn(false);
-      },300),
-      setTimeout(() =>  setCardOut(false), 500),
-    ],
+    onSwipedLeft: () => nextCard(),
+    onSwipedRight:() => prevCard(),
     trackTouch: true,
   });
 
@@ -41,32 +46,28 @@ const Masters = () => {
 
   return (
     <>
-      <div {...handlers} className={cn(styles.card, {
-        [styles.reverse]: activeCard === 0,
-        [styles.out]: cardOut,
-        [styles.in]: cardIn,
-      })}
-      >
-        <div className={styles.content}>
-          <h2 className={styles.cardTitle}>{title}</h2>
-          <p className={styles.description}>{description}</p>
-          <div className={styles.textBlock}>
-            {content.map((item) => <p className={styles.text}>{item}</p>)}
+      <div>
+        <div {...handlers} className={cn(styles.card, {
+          [styles.reverse]: activeCard === 0,
+          [styles.out]: cardOut,
+          [styles.in]: cardIn,
+        })}
+        >
+          <div className={styles.content}>
+            <h2 className={styles.cardTitle}>{title}</h2>
+            <p className={styles.description}>{description}</p>
+            <div className={styles.textBlock}>
+              {content.map((item) => <p className={styles.text}>{item}</p>)}
+            </div>
           </div>
-        </div>
-        <div className={styles.imgBox}>
-          <img className={styles.image} alt={`${title}_photo`} src={image} />
+          <div className={styles.imgBox}>
+            <img className={styles.image} alt={`${title}_photo`} src={image} />
+          </div>
         </div>
       </div>
       <div className={styles.pagination}>
-        {Object.keys(masters).map((item, id) => (
-          <div
-            className={cn(styles.paginationButton, {
-              [styles.active]: id === activeCard,
-            })}
-            onClick={() => setCard(id)}
-          />
-        ))}
+        <button className={styles.arrowBtn} onClick={() => prevCard()}>&#8636;</button>
+        <button className={styles.arrowBtn} onClick={() => nextCard()}>&#8640;</button>
       </div>
     </>
   );

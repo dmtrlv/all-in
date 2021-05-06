@@ -13,13 +13,13 @@
 
   &.out {
     opacity: 0;
-    transform: translateX(-400px);
+    transform: translateX(-700px);
     transition: transform 0.3s ease-in-out, opacity 0.01s ease 0.3s;
   }
 
   &.in {
     opacity: 0;
-    transform: translateX(400px);
+    transform: translateX(700px);
     transition: transform 0.3s ease-in-out, opacity 0.01s ease 0.3s;
   }
 
@@ -161,24 +161,8 @@
   max-width: 700px;
 }
 
-.paginationButton {
-  display: flex;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
+.arrowBtn {
+  background: none;
   border: none;
-  cursor: pointer;
-  background: var(--colorWhiteGray);
-
-  &:hover {
-    background: var(--colorLightGray);
-  }
-
-  &:not(:last-child) {
-    margin: 0 20px 0 0;
-  }
-
-  &.active {
-    background: black;
-  }
+  font-size: 15px;
 }

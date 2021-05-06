@@ -102,7 +102,7 @@ const ServicesFrame = () => {
         <div className={sharedStyles.frameWrapper}>
           <div className={sharedStyles.sloganBlock}>
             <div className={sharedStyles.slogan}>
-              краткое изречение, обычно выражающее
+              *Девиз - краткое изречение, обычно
             </div>
           </div>
           <div className={sharedStyles.accordionsBlock}>
