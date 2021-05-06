@@ -62,8 +62,9 @@ const AboutFrame = () => {
         </>
       ) : (
         <>
-          <div className={sharedStyles.sloganBlock}>
+          <div className={cn(sharedStyles.sloganBlock, sharedStyles.left)}>
             <div className={sharedStyles.slogan}>
+              или деятельности
               <span className={sharedStyles.accent}>* ALL IN</span>
             </div>
           </div>

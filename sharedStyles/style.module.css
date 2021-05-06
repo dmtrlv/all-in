@@ -53,6 +53,11 @@
   justify-content: center;
   min-height: 40px;
 
+  &.left {
+    justify-content: flex-start;
+    padding: 0 5px;
+  }
+
   .slogan {
     color: #ffffff;
     font-weight: 300;

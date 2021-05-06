@@ -35,7 +35,7 @@ const content = [
     title: 'Почта',
     withTopGap: true,
     titleSize: 'large',
-    content: <a href="mailto:all.in@gmail.com">all.in@gmail.com</a>,
+    content: <a href="mailto:barber.allin@gmail.com">barber.allin@gmail.com</a>,
   },
 ];
 
@@ -80,7 +80,7 @@ const ContactsFrame = () => {
         <>
           <div className={sharedStyles.sloganBlock}>
             <div className={sharedStyles.slogan}>
-              руководящую идею поведения или деятельности
+              выражающее руководящую идею поведения
             </div>
           </div>
           <div className={sharedStyles.accordionsBlock}>

@@ -50,7 +50,7 @@ const OrderFrame = () => {
         <div className={styles.slogan}>
           <div className={styles.accent}>ДЕВИЗ*</div>
           <div className={styles.sloganText}>
-            {isMobile ? '*Девиз -' : '*Девиз - краткое изречение, обычно выражающее руководящую идею поведения или деятельности.'}
+            {isMobile ? '' : '*Девиз - краткое изречение, обычно выражающее руководящую идею поведения или деятельности.'}
           </div>
         </div>
         <div className={styles.heading}>
