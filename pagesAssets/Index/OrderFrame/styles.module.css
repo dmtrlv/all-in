@@ -15,11 +15,18 @@
   margin: 0 54px 0 0;
   display: flex;
   justify-content: flex-end;
-  max-width: fit-content;
-  transition: max-width 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
   position: relative;
   z-index: 12;
   background: white;
+  transform: translateX(-2000px);
+
+
+  &.showLeftPart {
+    max-width: fit-content;
+    transform: translateX(0px);
+    transition: all 0.8s ease-in-out;
+  }
 
   &.fullWidth {
     right: 0;
@@ -45,6 +52,13 @@
   width: 100%;
   min-width: 100%;
   position: relative;
+  transform: translateX(2000px);
+  transition: transform 0.8s ease-in-out;
+
+  &.showRightPart {
+    transform: translateX(0px);
+    transition: transform 0.8s ease-in-out;
+  }
 
   @media screen and (max-width: 690px) {
     margin: 0 0 0 14px;

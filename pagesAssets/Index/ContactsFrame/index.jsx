@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import { useSelector } from 'react-redux';
 
 // components
@@ -12,6 +12,7 @@ import useScreen from '../../../customHooks/useScreen';
 import sharedStyles from '../../../sharedStyles/style.module.css';
 import styles from './style.module.css';
 import Accordion from '../../../components/Accordion';
+import cn from "classnames";
 
 const navigationList = [
   {
@@ -42,16 +43,25 @@ const content = [
 const ContactsFrame = () => {
   const [activeTab, setTab] = useState('contacts');
   const [activeCard, setActiveCard] = useState(1);
-  const { logoPosition } = useSelector((s) => ({
+  const [showParts, setShowParts] = useState(false);
+  const { logoPosition, mainTab } = useSelector((s) => ({
+    mainTab: s.app.mainTab,
     logoPosition: s.app.logoPosition,
   }));
   const screen = useScreen();
   const isMobile = screen.width <= 690;
+
+  useEffect(() => {
+    setShowParts(false);
+    setTimeout(() => setShowParts(true), 10);
+  }, [mainTab])
   return (
     <div className={sharedStyles.frameWrapper}>
       {!isMobile ? (
         <>
-          <div className={sharedStyles.navigationBlock}>
+          <div className={cn(sharedStyles.navigationBlock, {
+            [sharedStyles.showNav]: showParts,
+          })}>
             <Navigation
               list={navigationList}
               active={activeTab}
@@ -59,7 +69,10 @@ const ContactsFrame = () => {
               tabWidth={logoPosition}
             />
           </div>
-          <div className={sharedStyles.content}>
+          <div className={cn(sharedStyles.content, {
+            [sharedStyles.showContent]: showParts,
+          })}
+          >
             {content.map((item) => (
               <Card
                 onClick={(e) => setActiveCard(e)}

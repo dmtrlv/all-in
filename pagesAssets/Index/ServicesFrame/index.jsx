@@ -43,7 +43,9 @@ const accordionLabelMap = {
 const ServicesFrame = () => {
   const [activeTab, setTab] = useState('style');
   const [activeCard, setActiveCard] = useState(1);
-  const { logoPosition } = useSelector((s) => ({
+  const [showParts, setShowParts] = useState(false);
+  const { logoPosition, mainTab } = useSelector((s) => ({
+    mainTab: s.app.mainTab,
     logoPosition: s.app.logoPosition,
   }));
 
@@ -51,11 +53,18 @@ const ServicesFrame = () => {
     setActiveCard(1);
   }, [activeTab]);
 
+  useEffect(() => {
+    setShowParts(false);
+    setTimeout(() => setShowParts(true), 10);
+  }, [mainTab])
+
   return (
     <>
       <div className={styles.hideForMobile}>
         <div className={sharedStyles.frameWrapper}>
-          <div className={sharedStyles.navigationBlock}>
+          <div className={cn(sharedStyles.navigationBlock, {
+            [sharedStyles.showNav]: showParts,
+          })}>
             <Navigation
               list={navigationList}
               active={activeTab}
@@ -64,6 +73,7 @@ const ServicesFrame = () => {
             />
           </div>
           <div className={cn(sharedStyles.content, {
+            [sharedStyles.showContent]: showParts,
             [sharedStyles.directionColumn]: activeTab === 'king',
           })}
           >

@@ -8,6 +8,9 @@ import masters from '../../../../../content/masters';
 // styles
 import styles from './style.module.css';
 
+// assets
+// import ArrowSvg from '../../../../../public/masters/arrow.svg';
+
 
 const Masters = () => {
   const [activeCard, setCard] = useState(0);
@@ -46,7 +49,7 @@ const Masters = () => {
 
   return (
     <>
-      <div>
+      <div className={styles.cardsContainer}>
         <div {...handlers} className={cn(styles.card, {
           [styles.reverse]: activeCard === 0,
           [styles.out]: cardOut,
@@ -66,8 +69,12 @@ const Masters = () => {
         </div>
       </div>
       <div className={styles.pagination}>
-        <button className={styles.arrowBtn} onClick={() => prevCard()}>&#8636;</button>
-        <button className={styles.arrowBtn} onClick={() => nextCard()}>&#8640;</button>
+        <button className={cn(styles.arrowBtn, styles.left)} onClick={() => prevCard()}>
+          <img src='/masters/arrow.svg' alt='arrow-left'/>
+        </button>
+        <button className={cn(styles.arrowBtn, styles.right)} onClick={() => nextCard()}>
+          <img src='/masters/arrow.svg' alt='arrow-right'/>
+        </button>
       </div>
     </>
   );

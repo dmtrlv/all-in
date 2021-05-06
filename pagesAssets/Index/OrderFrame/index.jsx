@@ -11,11 +11,13 @@ import styles from './styles.module.css';
 const OrderFrame = () => {
   const iframeEl = useRef();
   const [widget, setWidget] = useState(false);
+  const [showParts, setShowParts] = useState(false);
   const [closeBtnAnimation, setAnimation] = useState(false);
   const [showGallery, setGalleryVisibility] = useState(false);
   const screen = useScreen();
   const isMobile = screen.width <= 690;
-  const { logoPosition, firstHeaderItemPos } = useSelector((s) => ({
+  const { logoPosition, firstHeaderItemPos, mainTab } = useSelector((s) => ({
+    mainTab: s.app.mainTab,
     logoPosition: s.app.logoPosition,
     firstHeaderItemPos: s.app.firstHeaderItemPos,
   }));
@@ -33,11 +35,17 @@ const OrderFrame = () => {
     };
   }, [widget]);
 
+  useEffect(() => {
+    setShowParts(false);
+    setTimeout(() => setShowParts(true), 10);
+  }, [mainTab])
+
   return (
     <div className={styles.frameWrapper}>
       <div
         className={cn(styles.leftPart, {
           [styles.fullWidth]: showGallery,
+          [styles.showLeftPart]: showParts,
         })}
         style={{ maxWidth: `${logoPosition || firstHeaderItemPos}px` }}
         onMouseEnter={!isMobile ? () => setGalleryVisibility(true) : () => {}}
@@ -46,7 +54,9 @@ const OrderFrame = () => {
       >
         <img src="/gallery.png" className={styles.gallery} alt="gallery" srcSet="/gallery.png 2x" />
       </div>
-      <div className={styles.rightPart}>
+      <div className={cn(styles.rightPart, {
+        [styles.showRightPart]: showParts,
+      })}>
         <div className={styles.slogan}>
           <div className={styles.accent}>ДЕВИЗ*</div>
           <div className={styles.sloganText}>

@@ -156,7 +156,7 @@
   display: flex;
   margin: 25px 0;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   width: 100%;
   max-width: 700px;
 }
@@ -165,4 +165,18 @@
   background: none;
   border: none;
   font-size: 15px;
+  cursor: pointer;
+
+  &.right {
+    transform: rotate(90deg);
+  }
+
+  &.left {
+    transform: rotate(270deg);
+  }
+}
+
+.cardsContainer {
+  overflow: hidden;
+  padding: 10px;
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import cn from 'classnames';
 import { useSelector } from 'react-redux';
 import Navigation from '../../../components/Navigation';
@@ -37,18 +37,27 @@ const contentMap = {
 
 const AboutFrame = () => {
   const [activeTab, setTab] = useState('who');
-  const { logoPosition } = useSelector((s) => ({
+  const [showParts, setShowParts] = useState(false);
+  const { logoPosition, mainTab } = useSelector((s) => ({
+    mainTab: s.app.mainTab,
     logoPosition: s.app.logoPosition,
   }));
 
   const screen = useScreen();
   const isMobile = screen.width <= 690;
 
+  useEffect(() => {
+    setShowParts(false);
+    setTimeout(() => setShowParts(true), 10);
+  }, [mainTab])
+
   return (
     <div className={sharedStyles.frameWrapper}>
       {!isMobile ? (
         <>
-          <div className={sharedStyles.navigationBlock}>
+          <div className={cn(sharedStyles.navigationBlock, {
+            [sharedStyles.showNav]: showParts,
+          })}>
             <Navigation
               list={navigationList}
               active={activeTab}
@@ -56,7 +65,9 @@ const AboutFrame = () => {
               tabWidth={logoPosition}
             />
           </div>
-          <div className={cn(sharedStyles.content, sharedStyles.directionColumn)}>
+          <div className={cn(sharedStyles.content, sharedStyles.directionColumn, {
+            [sharedStyles.showContent]: showParts,
+          })}>
             {contentMap[activeTab]}
           </div>
         </>
