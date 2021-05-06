@@ -17,6 +17,10 @@
       min-height: 340px;
       transition: min-height 0.5s ease-in-out;
     }
+
+    @media screen and (max-width: 690px) {
+      width: 238px;
+    }
   }
 
   &.small {
@@ -27,12 +31,17 @@
   }
 
   &.active {
+    pointer-events: none;
     min-height: 300px;
     transition: min-height 0.5s ease-in-out;
   }
 
   &.withTopGap {
     margin-top: 40px;
+  }
+
+  &.withRightGap {
+    margin-right: 40px;
   }
 
   @media screen and (max-width: 690px){

@@ -47,13 +47,12 @@ const Index = () => {
         <meta property="twitter:url" content='https://all-in-barbers.com' />
         <meta property="twitter:creator" content='https://all-in-barbers.com' />
         <meta property="twitter:description" content='All IN - это не просто барбершоп.Это место, в котором мы собрали профессионалов с многолетним опытом работы и им доверяем.Мы создали пространство где можно не думать о результате, потому что он всегда будет предвосхищать, ведь за вашу голову мы отвечаем своей.' />
-        <meta property="twitter:image" content='/header/all-in-logo.svg' />
         <meta property="twitter:site" content='https://all-in-barbers.com' />
 
         <meta property="og:type" content='product' />
         <meta property="og:url" content='https://all-in-barbers.com' />
         <meta property="og:title" content='All IN - barbers and more' />
-        <meta property="og:image" content='/header/all-in-logo.svg' />
+        <meta property="og:image" content='/header/logo.jpg' />
         <meta property="og:description" content='All IN - это не просто барбершоп.Это место, в котором мы собрали профессионалов с многолетним опытом работы и им доверяем.Мы создали пространство где можно не думать о результате, потому что он всегда будет предвосхищать, ведь за вашу голову мы отвечаем своей.' />
         <meta property="og:site_name" content='https://all-in-barbers.com' />
       </Head>

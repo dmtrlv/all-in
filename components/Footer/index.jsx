@@ -47,7 +47,7 @@ const Footer = () => {
         )}
         <div className={styles.social}>
           <div className={styles.socialItem}>
-            <div className={styles.c} onClick={() => setPhoneActive(!isPhoneActive)}>
+            <div className={styles.phoneSvgBlock} onClick={() => setPhoneActive(!isPhoneActive)}>
               <PhoneIconSVG color={isPhoneActive && !isMobile ? '#000000' : '#898989'} />
             </div>
             <a href="tel:89112871777" className={styles.link}>
