@@ -1,5 +1,5 @@
 .widgetCard {
-  width: 100%;
+  width: calc(100% - 60px);
   background: #FFFFFF;
   box-shadow: 0 4px 2px rgba(0, 0, 0, 0.15);
   position: relative;
@@ -15,40 +15,13 @@
 .widget {
   height: 100%;
   width: 100%;
-  min-height: 200px;
+  min-height: 371px;
+  min-width: 851px;
   filter: grayscale(1);
-}
 
-.textBlock {
-  padding: 0 25px;
-  max-width: 740px;
-  margin: 20px 0;
-
-  .text {
-    font-weight: 300;
-    color: black;
-    font-size: 18px;
-    line-height: 18px;
-
-    &:not(:last-child) {
-      margin: 0 0 20px 0;
-    }
+  @media screen and (max-width: 690px) {
+    min-width: 300px;
+    min-height: 420px;
   }
-}
-
-.hint {
-  font-weight: 900;
-  font-size: 70px;
-  line-height: 60px;
-  bottom: -9px;
-  left: -14px;
-  position: relative;
-
-  @media screen  and (max-width: 690px){
-    font-size: 21px;
-    left: -12px;
-    bottom: -24px;
-  }
-
 }
 

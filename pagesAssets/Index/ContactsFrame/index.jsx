@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { useSelector } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 // components
 import Navigation from '../../../components/Navigation';
@@ -13,6 +13,7 @@ import sharedStyles from '../../../sharedStyles/style.module.css';
 import styles from './style.module.css';
 import Accordion from '../../../components/Accordion';
 import cn from "classnames";
+import {setPartVisibility} from "../../../action/app";
 
 const navigationList = [
   {
@@ -41,20 +42,19 @@ const content = [
 ];
 
 const ContactsFrame = () => {
+  const dispatch = useDispatch();
   const [activeTab, setTab] = useState('contacts');
   const [activeCard, setActiveCard] = useState(1);
-  const [showParts, setShowParts] = useState(false);
-  const { logoPosition, mainTab } = useSelector((s) => ({
-    mainTab: s.app.mainTab,
+  const { logoPosition, showParts } = useSelector((s) => ({
     logoPosition: s.app.logoPosition,
+    showParts: s.app.showParts,
   }));
   const screen = useScreen();
   const isMobile = screen.width <= 690;
 
   useEffect(() => {
-    setShowParts(false);
-    setTimeout(() => setShowParts(true), 10);
-  }, [mainTab])
+    setTimeout(() => dispatch(setPartVisibility(true), 50));
+  }, [])
   return (
     <div className={sharedStyles.frameWrapper}>
       {!isMobile ? (

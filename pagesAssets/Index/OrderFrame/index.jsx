@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import {setPartVisibility} from '../../../action/app';
 import cn from 'classnames';
 
 // customHooks
@@ -10,16 +11,16 @@ import styles from './styles.module.css';
 
 const OrderFrame = () => {
   const iframeEl = useRef();
+  const dispatch = useDispatch();
   const [widget, setWidget] = useState(false);
-  const [showParts, setShowParts] = useState(false);
   const [closeBtnAnimation, setAnimation] = useState(false);
   const [showGallery, setGalleryVisibility] = useState(false);
   const screen = useScreen();
   const isMobile = screen.width <= 690;
-  const { logoPosition, firstHeaderItemPos, mainTab } = useSelector((s) => ({
-    mainTab: s.app.mainTab,
+  const { logoPosition, firstHeaderItemPos, showParts } = useSelector((s) => ({
     logoPosition: s.app.logoPosition,
     firstHeaderItemPos: s.app.firstHeaderItemPos,
+    showParts: s.app.showParts,
   }));
 
   const clickHandler = (e) => {
@@ -36,23 +37,27 @@ const OrderFrame = () => {
   }, [widget]);
 
   useEffect(() => {
-    setShowParts(false);
-    setTimeout(() => setShowParts(true), 10);
-  }, [mainTab])
+    setTimeout(() => dispatch(setPartVisibility(true), 50));
+  }, [])
 
   return (
     <div className={styles.frameWrapper}>
       <div
         className={cn(styles.leftPart, {
-          [styles.fullWidth]: showGallery,
           [styles.showLeftPart]: showParts,
+          [styles.fullWidth]: showGallery,
         })}
-        style={{ maxWidth: `${logoPosition || firstHeaderItemPos}px` }}
         onMouseEnter={!isMobile ? () => setGalleryVisibility(true) : () => {}}
         onMouseLeave={!isMobile ? () => setGalleryVisibility(false) : () => {}}
         onClick={isMobile ? () => setGalleryVisibility(!showGallery) : () => {}}
+        style={{ maxWidth: `${logoPosition || firstHeaderItemPos}px` }}
       >
-        <img src="/gallery.png" className={styles.gallery} alt="gallery" srcSet="/gallery.png 2x" />
+        <img
+          src="/gallery.png"
+          className={styles.gallery}
+          alt="gallery"
+          srcSet="/gallery.png 2x"
+        />
       </div>
       <div className={cn(styles.rightPart, {
         [styles.showRightPart]: showParts,

@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 // actions
-import { setFirstHeaderItemPosToLeft, setLogoPositionToLeft, setMainTab } from '../../action/app';
+import {setFirstHeaderItemPosToLeft, setLogoPositionToLeft, setMainTab, setPartVisibility} from '../../action/app';
 
 // customHooks
 import useScreen from '../../customHooks/useScreen';
@@ -18,6 +18,9 @@ const Header = () => {
   const dispatch = useDispatch();
   const screen = useScreen();
   const [isMobile, setIsMobile] = useState(false);
+  const {mainTab} = useSelector(s => ({
+    mainTab: s.app.mainTab,
+  }))
 
   useEffect(() => {
     setIsMobile(screen.width <= 690);
@@ -33,7 +36,9 @@ const Header = () => {
       <div className={styles.headerContent}>
         {!isMobile
         // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
-        && <img onClick={() => dispatch(setMainTab('order'))} ref={logoEl} src="/header/all-in-logo.svg" alt="logo" />}
+        && <img onClick={mainTab !== 'order' ? () => [
+          dispatch(setPartVisibility(false)), setTimeout(() => dispatch(setMainTab('order')), 300)
+        ] : () => {}} ref={logoEl} src="/header/all-in-logo.svg" alt="logo" />}
         <HeaderNavigationComp className={styles.headerNavigation} />
       </div>
     </div>

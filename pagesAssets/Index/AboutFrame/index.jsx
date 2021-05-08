@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import cn from 'classnames';
-import { useSelector } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import Navigation from '../../../components/Navigation';
 
 import Widget from './children/YandexWidget';
@@ -13,6 +13,7 @@ import useScreen from '../../../customHooks/useScreen';
 // styles
 import sharedStyles from '../../../sharedStyles/style.module.css';
 import styles from './style.module.css';
+import {setPartVisibility} from "../../../action/app";
 
 const navigationList = [
   {
@@ -36,20 +37,22 @@ const contentMap = {
 };
 
 const AboutFrame = () => {
+  const dispatch = useDispatch();
   const [activeTab, setTab] = useState('who');
-  const [showParts, setShowParts] = useState(false);
-  const { logoPosition, mainTab } = useSelector((s) => ({
-    mainTab: s.app.mainTab,
+  const {
+    logoPosition,
+    showParts
+  } = useSelector((s) => ({
     logoPosition: s.app.logoPosition,
+    showParts: s.app.showParts,
   }));
 
   const screen = useScreen();
   const isMobile = screen.width <= 690;
 
   useEffect(() => {
-    setShowParts(false);
-    setTimeout(() => setShowParts(true), 10);
-  }, [mainTab])
+    setTimeout(() => dispatch(setPartVisibility(true), 50));
+  }, [])
 
   return (
     <div className={sharedStyles.frameWrapper}>

@@ -4,7 +4,12 @@ import React, {
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
-import { setFirstHeaderItemPosToLeft, setLogoPositionToLeft, setMainTab } from '../../action/app';
+import {
+  setFirstHeaderItemPosToLeft,
+  setLogoPositionToLeft,
+  setMainTab,
+  setPartVisibility
+} from '../../action/app';
 import { DISABLED_HEADER_NAV_ITEMS } from '../../constants/index';
 
 // styles
@@ -27,6 +32,7 @@ const defaultProps = {
 const HeaderNavigationComp = ({ className }) => {
   const dispatch = useDispatch();
   const firstHeaderEl = useRef();
+  const [activeTab, setActiveTab] = useState('order');
   const [isMobile, setIsMobile] = useState(false);
   const { mainTab } = useSelector((s) => ({
     mainTab: s.app.mainTab,
@@ -36,6 +42,14 @@ const HeaderNavigationComp = ({ className }) => {
     () => (!isMobile ? HeaderContent : HeaderContent.slice(0, 4)),
     [isMobile],
   );
+
+  const navigationClick = (itemName) => {
+    if (mainTab !== itemName) {
+      dispatch(setPartVisibility(false));
+      setTimeout(() =>  dispatch(setMainTab(itemName)), 500)
+        setActiveTab(itemName);
+    }
+  }
 
   useEffect(() => {
     setIsMobile(screen.width <= 690);
@@ -54,10 +68,10 @@ const HeaderNavigationComp = ({ className }) => {
         <div
           ref={id === 0 ? firstHeaderEl : null}
           className={cn(styles.menuItem, {
-            [styles.active]: mainTab === item.name,
+            [styles.active]: activeTab === item.name,
             [styles.disabled]: DISABLED_HEADER_NAV_ITEMS.has(item.name),
           })}
-          onClick={() => dispatch(setMainTab(item.name))}
+          onClick={() => navigationClick(item.name)}
         >
           {item.content}
         </div>

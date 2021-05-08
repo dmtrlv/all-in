@@ -19,13 +19,11 @@
 .navigationBlock {
   margin: 0 54px 0 0;
   transform: translateX(-5000px);
-  transition: transform 0.8s ease-in-out;
+  transition: transform 0.5s ease-in-out;
 
   &.showNav {
     transform: translateX(0px);
-    transition: transform 0.8s ease-in-out;
   }
-
 }
 
 .content {
@@ -33,11 +31,10 @@
   width: 100%;
   margin: 0 0 20px 54px;
   transform: translateX(5000px);
-  transition: transform 0.8s ease-in-out;
+  transition: transform 0.5s ease-in-out;
 
   &.showContent {
     transform: translateX(0px);
-    transition: transform 0.8s ease-in-out;
   }
 
   &.directionColumn {

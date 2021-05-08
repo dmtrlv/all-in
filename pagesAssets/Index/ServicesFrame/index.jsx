@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import cn from 'classnames';
 
 // components
@@ -13,6 +13,7 @@ import Accordion from '../../../components/Accordion';
 
 // content
 import content from '../../../content/serviceContent';
+import {setPartVisibility} from "../../../action/app";
 
 const navigationList = [
   {
@@ -41,12 +42,12 @@ const accordionLabelMap = {
 };
 
 const ServicesFrame = () => {
+  const dispatch = useDispatch()
   const [activeTab, setTab] = useState('style');
   const [activeCard, setActiveCard] = useState(1);
-  const [showParts, setShowParts] = useState(false);
-  const { logoPosition, mainTab } = useSelector((s) => ({
-    mainTab: s.app.mainTab,
+  const { logoPosition, showParts } = useSelector((s) => ({
     logoPosition: s.app.logoPosition,
+    showParts: s.app.showParts,
   }));
 
   useEffect(() => {
@@ -54,9 +55,8 @@ const ServicesFrame = () => {
   }, [activeTab]);
 
   useEffect(() => {
-    setShowParts(false);
-    setTimeout(() => setShowParts(true), 10);
-  }, [mainTab])
+    setTimeout(() => dispatch(setPartVisibility(true), 50));
+  }, [])
 
   return (
     <>

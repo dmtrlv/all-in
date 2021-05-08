@@ -10,23 +10,6 @@ const YandexWidget = () => (
       title="yandex-map-widget"
       className={styles.widget}
     />
-    <div className={styles.textBlock}>
-      <p className={styles.text}>
-        Благодаря этой карте Вы всегда найдете
-        путь сквозь серость города. Линия пройдет через асфальт и бетон, через светофоры и подземки.
-        Где бы Вы не были, всегда найдется наиболее удобный и быстрый маршрут.
-      </p>
-      <p className={styles.text}>
-        И да, стоит разрешить карте определять Вашу геопозицию и на карте появится маршрут до самого
-        порядочного барбершопа Северной столицы.
-      </p>
-      <p className={styles.text}>
-        Помните, что все дороги ведут в All In Barbershop
-      </p>
-    </div>
-    <div className={styles.hint}>
-      Дорогу осилит идущий
-    </div>
   </div>
 );
 

@@ -12,30 +12,26 @@
 }
 
 .leftPart {
-  margin: 0 54px 0 0;
+  position: relative;
   display: flex;
   justify-content: flex-end;
-  transition: all 0.8s ease-in-out;
-  position: relative;
+  margin: 0 54px 0 0;
   z-index: 12;
   background: white;
-  transform: translateX(-2000px);
-
+  transition: all 0.5s ease;
+  left: -2000px;
 
   &.showLeftPart {
-    max-width: fit-content;
-    transform: translateX(0px);
-    transition: all 0.8s ease-in-out;
+    left: 0;
   }
 
   &.fullWidth {
     right: 0;
     max-width: 100% !important;
-    transition: max-width 0.8s ease-in-out;
   }
 
   .gallery {
-    min-height: 790px;
+    min-height: 820px;
   }
 
   @media screen and (max-width: 690px) {
@@ -53,11 +49,10 @@
   min-width: 100%;
   position: relative;
   transform: translateX(2000px);
-  transition: transform 0.8s ease-in-out;
+  transition: transform 0.5s ease-in-out;
 
   &.showRightPart {
     transform: translateX(0px);
-    transition: transform 0.8s ease-in-out;
   }
 
   @media screen and (max-width: 690px) {
@@ -199,7 +194,6 @@
     }
   }
 }
-
 
 .iframe {
   display: block;
