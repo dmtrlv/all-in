@@ -22,8 +22,58 @@
 
 .headerNavigation {
   margin: 0 0 0 108px;
+  display: flex;
+  align-items: center;
 
   @media screen and (max-width: 690px) {
     margin: 0;
   }
 }
+
+
+.menuItem {
+  margin: 0 32px;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 300;
+  cursor: pointer;
+  text-transform: uppercase;
+  outline: none;
+  width: max-content;
+
+  &:first-child {
+    margin: 0 32px 0 0;
+  }
+
+  &:last-child {
+    margin: 0 0 0 32px;
+  }
+
+  &.active {
+    font-weight: 700;
+  }
+
+  &.disabled {
+    pointer-events: none;
+    color: var(--colorLightGray);
+  }
+
+  span {
+    padding: 0 2px;
+  }
+
+  @media screen and (max-width: 690px) {
+    font-size: 12px;
+    line-height: 12px;
+    margin: 0 12px;
+
+    &:first-child {
+      margin: 0 12px 0 0;
+    }
+
+    &:last-child {
+      margin: 0 0 0 12px;
+    }
+  }
+}
+
