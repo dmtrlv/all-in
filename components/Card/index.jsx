@@ -14,12 +14,6 @@ const propTypes = {
   active: PropTypes.bool.isRequired,
   id: PropTypes.number,
   onClick: PropTypes.func,
-  titlePos: PropTypes.string,
-  titleWeight: PropTypes.string,
-  titleSize: PropTypes.string,
-  titleMaxWidth: PropTypes.number,
-  titleAlign: PropTypes.string,
-  titleInvert: PropTypes.bool,
   withFullWidth: PropTypes.bool,
   content: PropTypes.string,
   className: PropTypes.string,
@@ -35,12 +29,6 @@ const defaultProps = {
   withTopGap: false,
   id: null,
   onClick: () => {},
-  titlePos: '',
-  titleWeight: '',
-  titleSize: '',
-  titleMaxWidth: null,
-  titleAlign: '',
-  titleInvert: false,
   withFullWidth: false,
   content: '',
   className: '',
@@ -58,12 +46,6 @@ const Card = ({
   active,
   id,
   onClick,
-  titlePos,
-  titleWeight,
-  titleSize,
-  titleMaxWidth,
-  titleAlign,
-  titleInvert,
   withFullWidth,
   content,
   className,
@@ -80,20 +62,12 @@ const Card = ({
     })}
     onClick={(e) => active ? () => {} : onClick(id, e)}
   >
-    <div className={cn(styles.titleBlock, {
-      [styles.center]: Boolean(titlePos === 'center'),
-    })}
+    <div className={styles.titleBlock}
     >
       <h2
         className={cn(styles.cardTitle, {
           [styles.active]: active,
-          [styles.invert]: titleInvert,
-          [styles[titlePos]]: Boolean(titlePos),
-          [styles[titleWeight]]: Boolean(titleWeight),
-          [styles[titleSize]]: Boolean(titleSize),
-          [styles[titleAlign]]: Boolean(titleAlign),
         })}
-        style={{ maxWidth: `${titleMaxWidth}px` }}
       >
         {title}
         {extraTitle ? (
