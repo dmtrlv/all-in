@@ -1,19 +1,23 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {setPartVisibility} from '../../../action/app';
 import cn from 'classnames';
+import { setWidget } from "../../../action/app";
+import Link from 'next/link';
 
 // customHooks
 import useScreen from '../../../customHooks/useScreen';
 
 // styles
 import styles from './styles.module.css';
+import Button from "../../../components/MainButton";
+
+const iframeUrl = 'https://n451950.yclients.com/company:428417/idx:0/master?o=m1246829';
+const iosAppLink = 'https://apps.apple.com/ru/app/all-in-barbers-and-more/id1557949058';
+const googlePlayLink = 'https://play.google.com/store/apps/details?id=com.yclients.mobile.s428417&hl=ru&gl=US';
 
 const OrderFrame = () => {
-  const iframeEl = useRef();
   const dispatch = useDispatch();
-  const [widget, setWidget] = useState(false);
-  const [closeBtnAnimation, setAnimation] = useState(false);
   const [showGallery, setGalleryVisibility] = useState(false);
   const screen = useScreen();
   const isMobile = screen.width <= 690;
@@ -22,19 +26,6 @@ const OrderFrame = () => {
     firstHeaderItemPos: s.app.firstHeaderItemPos,
     showParts: s.app.showParts,
   }));
-
-  const clickHandler = (e) => {
-    if (widget && !iframeEl.current.contains(e.target)) {
-      setWidget(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener('click', clickHandler);
-    return () => {
-      document.removeEventListener('click', clickHandler);
-    };
-  }, [widget]);
 
   useEffect(() => {
     setTimeout(() => dispatch(setPartVisibility(true), 50));
@@ -77,9 +68,19 @@ const OrderFrame = () => {
             </p>
           </div>
         </div>
-        <button className={styles.button} type="button" onClick={() => setWidget(true)}>
-          Записаться
-        </button>
+        <div className={styles.buttonsBlock}>
+          <Button className={styles.orderBtn} onClick={() => dispatch(setWidget({widget: true, iframeUrl}))} >Записаться</Button>
+          <a href={iosAppLink} target='_blank'>
+            <Button className={styles.storeLink} isStore>
+              <img className={styles.storeImg} src="store/apple.svg" alt='app-store-svg'/>
+            </Button>
+          </a>
+          <a href={googlePlayLink} target='_blank'>
+            <Button className={styles.storeLink} isStore>
+              <img className={styles.storeImg} src="store/google.svg" alt='app-store-svg'/>
+            </Button>
+          </a>
+        </div>
         {isMobile && (
         <div className={styles.bottomPartForMobile}>
           <span className={styles.text}>Пн-Вс, 9:00-22:00</span>
@@ -89,34 +90,6 @@ const OrderFrame = () => {
           </div>
         </div>
         )}
-      </div>
-      <div className={cn(styles.widgetContainer, {
-        [styles.active]: widget,
-      })}
-      >
-        <div className={styles.iframeContainer}>
-          <button
-            type="button"
-            className={styles.closeBtn}
-            onClick={() => setWidget(false)}
-          >
-            <img
-              onMouseEnter={() => setAnimation(true)}
-              onMouseLeave={() => setAnimation(false)}
-              className={cn(styles.icon, {
-                [styles.spin]: closeBtnAnimation,
-              })}
-              src="/close.svg"
-              alt="close-icon"
-            />
-          </button>
-          <iframe
-            ref={iframeEl}
-            className={styles.iframe}
-            title="widget"
-            src="https://n451950.yclients.com/company:428417/idx:0/master?o=m1246829"
-          />
-        </div>
       </div>
     </div>
   );

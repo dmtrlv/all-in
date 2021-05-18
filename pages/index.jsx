@@ -14,6 +14,7 @@ import ContactsFrame from '../pagesAssets/Index/ContactsFrame';
 
 // styles
 import styles from '../pagesAssets/Index/style.module.css';
+import Widget from "../components/Widget";
 
 const frameMap = {
   order: <OrderFrame />,
@@ -62,6 +63,7 @@ const Index = () => {
           {memorizedContent}
         </div>
         <Footer />
+        <Widget />
       </div>
     </>
   );

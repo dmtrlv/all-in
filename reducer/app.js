@@ -3,6 +3,7 @@ import {
   SET_LOGO_POSITION,
   SET_FIRST_HEADER_ITEM_POSITION,
   SET_PART_VISIBILITY,
+  SET_WIDGET,
 } from '../constants';
 
 const initialState = {
@@ -10,6 +11,8 @@ const initialState = {
   logoPosition: null,
   firstHeaderItemPos: null,
   showParts: false,
+  widget: false,
+  iframeUrl: '',
 };
 
 export default function app(state = initialState, { type, payload }) {
@@ -33,6 +36,13 @@ export default function app(state = initialState, { type, payload }) {
       return {
         ...state,
         showParts: payload,
+      }
+    case SET_WIDGET:
+      const { widget, iframeUrl } = payload;
+      return {
+        ...state,
+        widget,
+        iframeUrl,
       }
     default:
       return state;

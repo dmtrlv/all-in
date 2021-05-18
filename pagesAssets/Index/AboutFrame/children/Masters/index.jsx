@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import cn from 'classnames';
 import { useSwipeable } from "react-swipeable";
+import { useDispatch } from "react-redux";
+import { setWidget } from '../../../../../action/app';
 
 //content
 import masters from '../../../../../content/masters';
 
 // styles
 import styles from './style.module.css';
-
-// assets
-// import ArrowSvg from '../../../../../public/masters/arrow.svg';
+import Button from "../../../../../components/MainButton";
 
 
 const Masters = () => {
+  const dispatch = useDispatch();
   const [activeCard, setCard] = useState(0);
   const [cardOut, setCardOut] = useState(false);
   const [cardIn, setCardIn] = useState(false);
@@ -44,14 +45,16 @@ const Masters = () => {
   });
 
   const {
-    title, description, content, image,
+    title, description, content, image, link, reviews,
   } = masters[activeCard];
+
+  const isMainCard = activeCard === 0;
 
   return (
     <>
       <div className={styles.cardsContainer}>
         <div {...handlers} className={cn(styles.card, {
-          [styles.reverse]: activeCard === 0,
+          [styles.reverse]: isMainCard,
           [styles.out]: cardOut,
           [styles.in]: cardIn,
         })}
@@ -59,9 +62,13 @@ const Masters = () => {
           <div className={styles.content}>
             <h2 className={styles.cardTitle}>{title}</h2>
             <p className={styles.description}>{description}</p>
-            <div className={styles.textBlock}>
+            {content && <div className={styles.textBlock}>
               {content.map((item) => <p className={styles.text}>{item}</p>)}
-            </div>
+            </div>}
+            {!isMainCard && <div className={styles.buttonBlock}>
+              <Button onClick={() => dispatch(setWidget({widget: true, iframeUrl: link}))} >записаться</Button>
+              <Button onClick={() => dispatch(setWidget({widget: true, iframeUrl: reviews}))}>отзывы</Button>
+            </div>}
           </div>
           <div className={styles.imgBox}>
             <img className={styles.image} alt={`${title}_photo`} src={image} />

@@ -49,7 +49,7 @@
     }
 
     .textBlock {
-      margin: 15px 0 34px 0;
+      margin: 0 0 34px 0;
     }
 
     .cardTitle {
@@ -102,6 +102,10 @@
 .content {
   color: black;
   min-width: 470px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   @media screen  and (max-width: 690px){
     min-width: auto;
@@ -110,25 +114,29 @@
 }
 
 .cardTitle {
-  font-size: 47px;
+  font-size: 45px;
   line-height: 100%;
   font-weight: 900;
   z-index: 10;
   position: relative;
+  text-align: right;
 
   @media screen  and (max-width: 690px){
     font-size: 26px;
+    text-align: center;
   }
 }
 
 .description {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 100%;
-  margin: 4px 0 0 0;
+  margin: 12px 0 0 0;
   font-weight: 300;
+  text-align: right;
 
   @media screen  and (max-width: 690px){
-    font-size: 10px;
+    font-size: 12px;
+    text-align: center;
   }
 }
 
@@ -180,4 +188,23 @@
 .cardsContainer {
   overflow: hidden;
   padding: 10px;
+}
+
+.buttonBlock {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 24px 0 0 0;
+
+  :first-child {
+    margin: 0 8px 0 0;
+  }
+
+  :last-child {
+    margin: 0 0 0 8px;
+  }
+
+  @media screen and (max-width: 690px) {
+    justify-content: center;
+  }
 }
