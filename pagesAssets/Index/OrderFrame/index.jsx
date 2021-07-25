@@ -54,10 +54,7 @@ const OrderFrame = () => {
         [styles.showRightPart]: showParts,
       })}>
         <div className={styles.slogan}>
-          <div className={styles.accent}>ДЕВИЗ*</div>
-          <div className={styles.sloganText}>
-            {isMobile ? '' : '*Девиз - краткое изречение, обычно выражающее руководящую идею поведения или деятельности.'}
-          </div>
+          <div className={styles.accent}>ALL IN *summer season</div>
         </div>
         <div className={styles.heading}>
           <h1 className={styles.mainTitle}>ЗА ВАШУ ГОЛОВУ МЫ ОТВЕЧАЕМ СВОЕЙ</h1>

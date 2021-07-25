@@ -74,7 +74,7 @@ const ServicesFrame = () => {
           </div>
           <div className={cn(sharedStyles.content, {
             [sharedStyles.showContent]: showParts,
-            [sharedStyles.directionColumn]: activeTab === 'king',
+            // [sharedStyles.directionColumn]: activeTab === 'king',
           })}
           >
             {content.contentMap[activeTab].map((tabContent) => (

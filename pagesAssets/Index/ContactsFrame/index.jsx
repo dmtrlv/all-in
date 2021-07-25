@@ -3,48 +3,34 @@ import {useDispatch, useSelector} from 'react-redux';
 
 // components
 import Navigation from '../../../components/Navigation';
-import Card from '../../../components/Card';
 
 // custom Hooks
 import useScreen from '../../../customHooks/useScreen';
 
 // styles
 import sharedStyles from '../../../sharedStyles/style.module.css';
-import styles from './style.module.css';
-import Accordion from '../../../components/Accordion';
 import cn from "classnames";
 import {setPartVisibility} from "../../../action/app";
+import YandexWidget from "./children/YandexWidget";
+import Contacts from "./children/Contacts";
 
 const navigationList = [
   {
     name: 'Как с нами связаться',
     id: 'contacts',
   },
+  {name: 'Где найти', id: 'map'}
 ];
 
-const content = [
-  {
-    id: 1,
-    title: 'Мобильный телефон',
-    content: <a href="tel:+79112871777">8 911 287 17 77</a>,
-    withTopGap: true,
-    titleWeight: 'bold',
-    titleSize: 'large',
-    titlePos: 'leftTop',
-  },
-  {
-    id: 2,
-    title: 'Почта',
-    withTopGap: true,
-    titleSize: 'large',
-    content: <a href="mailto:barber.allin@gmail.com">barber.allin@gmail.com</a>,
-  },
-];
+const contentMap = {
+  contacts: <Contacts/>,
+  map: <YandexWidget/>
+}
 
 const ContactsFrame = () => {
   const dispatch = useDispatch();
   const [activeTab, setTab] = useState('contacts');
-  const [activeCard, setActiveCard] = useState(1);
+
   const { logoPosition, showParts } = useSelector((s) => ({
     logoPosition: s.app.logoPosition,
     showParts: s.app.showParts,
@@ -73,33 +59,29 @@ const ContactsFrame = () => {
             [sharedStyles.showContent]: showParts,
           })}
           >
-            {content.map((item) => (
-              <Card
-                onClick={(e) => setActiveCard(e)}
-                active={item.id === activeCard}
-                id={item.id}
-                title={item.title}
-                content={item.content}
-                className={styles.card}
-                titleWeight={item.titleWeight}
-                titleSize={item.titleSize}
-                titlePos={item.titlePos}
-                isSmall
-              />
-            ))}
+            {contentMap[activeTab]}
           </div>
         </>
       ) : (
-        <>
-          <div className={sharedStyles.sloganBlock}>
-            <div className={sharedStyles.slogan}>
-              выражающее руководящую идею поведения
-            </div>
-          </div>
           <div className={sharedStyles.accordionsBlock}>
-            <Accordion isContentVisible openedCardId={1} content={content} label="КАК СВЯЗАТЬСЯ С НАМИ" />
+            {Object.entries(contentMap).map(([key, value]) => (
+                <div className={sharedStyles.accordionWrapper}>
+                  <div
+                      className={cn(sharedStyles.label, {
+                        [sharedStyles.active]: key === activeTab,
+                      })}
+                      onClick={() => setTab(key)}
+                  >
+                    {navigationList.find((item) => item.id === key).name}
+                  </div>
+                  {key === activeTab && (
+                      <div className={sharedStyles.accordionContent}>
+                        {value}
+                      </div>
+                  )}
+                </div>
+            ))}
           </div>
-        </>
       )}
     </div>
   );

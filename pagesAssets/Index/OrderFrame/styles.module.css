@@ -114,13 +114,14 @@
   align-items: center;
   position: relative;
   padding: 6px 82px 6px 0;
-  background: black;
-  color: #fff;
+  background: #ff9c23;
+  color: black;
   width: 100%;
+  overflow: hidden;
 
   .accent {
     position: relative;
-    left: -22px;
+    left: -14px;
     font-size: 48px;
     line-height: 48px;
     margin: 0 54px 0 0;
