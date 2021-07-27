@@ -90,25 +90,6 @@
   }
 }
 
-.description {
-  margin: 10px 0 50px 0;
-
-  .subTitle {
-    font-weight: 300;
-    font-size: 17px;
-    color: black;
-  }
-
-  @media screen and (max-width: 690px) {
-    margin: 10px 0 20px 0;
-    .subTitle {
-      font-size: 12px;
-      line-height: 12px;
-      max-width: 196px;
-    }
-  }
-}
-
 .slogan {
   display: flex;
   align-items: center;
@@ -171,6 +152,7 @@
 .buttonsBlock {
   display: flex;
   align-items: center;
+  margin: 24px 0 0 0;
 
   @media screen and (max-width: 690px) {
     flex-direction: column;

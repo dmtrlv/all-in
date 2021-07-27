@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import {setPartVisibility} from '../../../action/app';
 import cn from 'classnames';
 import { setWidget } from "../../../action/app";
-import Link from 'next/link';
 
 // customHooks
 import useScreen from '../../../customHooks/useScreen';
@@ -58,12 +57,6 @@ const OrderFrame = () => {
         </div>
         <div className={styles.heading}>
           <h1 className={styles.mainTitle}>ЗА ВАШУ ГОЛОВУ МЫ ОТВЕЧАЕМ СВОЕЙ</h1>
-          <div className={styles.description}>
-            <p className={styles.subTitle}>
-              А также, отвечаем и за свои слова. Мы сделаем качественно и красиво.
-              Вы сможете отвлечься от всех проблем. В общем, меньше слов, больше дел. Ждём Вас!
-            </p>
-          </div>
         </div>
         <div className={styles.buttonsBlock}>
           <Button className={styles.orderBtn} onClick={() => dispatch(setWidget({widget: true, iframeUrl}))} >Записаться</Button>

@@ -11,6 +11,7 @@ import masters from '../../../../../content/masters';
 import styles from './style.module.css';
 import Button from "../../../../../components/MainButton";
 
+const CARDS_COUNT = 6;
 
 const Masters = () => {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ const Masters = () => {
   const prevCard = () => {
     setCardIn(true);
     setTimeout(() => {
-      activeCard === 0 ? setCard(7) : setCard(activeCard - 1);
+      activeCard === 0 ? setCard(CARDS_COUNT) : setCard(activeCard - 1);
       setCardOut(true);
       setCardIn(false);
     },300);
@@ -31,7 +32,7 @@ const Masters = () => {
   const nextCard = () => {
     setCardOut(true);
     setTimeout(() => {
-      activeCard === 7 ?   setCard(0) : setCard(activeCard + 1);
+      activeCard === CARDS_COUNT ? setCard(0) : setCard(activeCard + 1);
       setCardIn(true);
       setCardOut(false);
     }, 300);
