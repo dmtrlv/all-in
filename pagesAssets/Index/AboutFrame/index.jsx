@@ -3,7 +3,6 @@ import cn from 'classnames';
 import {useDispatch, useSelector} from 'react-redux';
 import Navigation from '../../../components/Navigation';
 
-import Widget from '../ContactsFrame/children/YandexWidget';
 import WhoWeAre from './children/WhoWeAre';
 import Masters from './children/Masters';
 
@@ -70,12 +69,6 @@ const AboutFrame = () => {
         </>
       ) : (
         <>
-          <div className={cn(sharedStyles.sloganBlock, sharedStyles.left)}>
-            <div className={sharedStyles.slogan}>
-              или деятельности
-              <span className={sharedStyles.accent}>* ALL IN</span>
-            </div>
-          </div>
           <div className={sharedStyles.accordionsBlock}>
             {Object.entries(contentMap).map(([key, value]) => (
               <div className={sharedStyles.accordionWrapper}>

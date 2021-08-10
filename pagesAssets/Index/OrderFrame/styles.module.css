@@ -35,6 +35,7 @@
   }
 
   @media screen and (max-height: 800px) and (min-width: 700px) and (max-width: 1200px){
+
     .gallery {
       min-height: auto;
       max-height: 560px;
@@ -43,9 +44,10 @@
 
   @media screen and (max-width: 690px) {
     margin: 0 14px 0 0;
+    min-height: 596px;
 
     .gallery {
-      min-height: auto;
+      min-height: 100%;
     }
   }
 }
@@ -115,9 +117,9 @@
 
   @media screen  and (max-width: 690px){
     .accent {
-      font-size: 30px;
+      font-size: 18px;
       line-height: 30px;
-      left: -18px;
+      left: -6px;
       margin: 0;
     }
 
