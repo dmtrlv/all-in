@@ -110,11 +110,6 @@ const ServicesFrame = () => {
       </div>
       <div className={styles.hideForDesktop}>
         <div className={sharedStyles.frameWrapper}>
-          <div className={sharedStyles.sloganBlock}>
-            <div className={sharedStyles.slogan}>
-              *Девиз - краткое изречение, обычно
-            </div>
-          </div>
           <div className={sharedStyles.accordionsBlock}>
             {Object.entries(content.contentArr).map(([key, value]) => (
               <Accordion

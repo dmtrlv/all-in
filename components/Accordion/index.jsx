@@ -54,22 +54,23 @@ const Accordion = ({
         <div className={styles.content}>
           {content.map((item) => (
             <Card
-              id={item.id}
-              active={item.id === activeCard}
-              title={item.title}
-              extraTitle={item.extraTitle}
-              content={item.content}
-              time={item.time}
-              price={item.price}
-              withTopGap={item.withTopGap}
-              onClick={(e) => [setActiveCard(0), setTimeout(() => { setActiveCard(e); }, 350)]}
-              titlePos={item.titlePos}
-              titleWeight={item.titleWeight}
-              titleSize={item.titleSize}
-              titleMaxWidth={item.titleMaxWidth}
-              titleAlign={item.titleAlign}
-              titleInvert={item.titleInvert}
-              withFullWidth={item.withFullWidth}
+                id={item.id}
+                active={item.id === activeCard}
+                title={item.title}
+                extraTitle={item.extraTitle}
+                content={item.content}
+                time={item.time}
+                price={item.price}
+                withTopGap={item.withTopGap}
+                onClick={(e) => [setActiveCard(0), setTimeout(() => { setActiveCard(e); }, 350)]}
+                titlePos={item.titlePos}
+                titleWeight={item.titleWeight}
+                titleSize={item.titleSize}
+                titleMaxWidth={item.titleMaxWidth}
+                titleAlign={item.titleAlign}
+                titleInvert={item.titleInvert}
+                withFullWidth={item.withFullWidth}
+                withFullHeight={item.withFullHeight}
             />
           ))}
         </div>

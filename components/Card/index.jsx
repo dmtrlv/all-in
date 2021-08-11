@@ -19,6 +19,7 @@ const propTypes = {
   className: PropTypes.string,
   isSmall: PropTypes.bool,
   withRightGap: PropTypes.bool,
+  withFullHeight: PropTypes.bool,
 };
 
 const defaultProps = {
@@ -34,6 +35,7 @@ const defaultProps = {
   className: '',
   isSmall: false,
   withRightGap: false,
+  withFullHeight: false,
 };
 
 const Card = ({
@@ -50,6 +52,7 @@ const Card = ({
   content,
   className,
   isSmall,
+  withFullHeight,
 }) => (
   <div
     className={cn(styles.cardWrapper, {
@@ -58,6 +61,7 @@ const Card = ({
       [styles.active]: active,
       [styles.withFullWidth]: withFullWidth,
       [styles.small]: isSmall,
+      [styles.fullHeight]: withFullHeight,
       [className]: true,
     })}
     onClick={(e) => active ? () => {} : onClick(id, e)}
@@ -79,6 +83,7 @@ const Card = ({
     {active ? (
       <div className={cn(styles.cardInfo, {
         [styles.withWhiteBg]: Boolean(content),
+        [styles.fullHeight]: withFullHeight,
       })}
       >
         {time && price ? (

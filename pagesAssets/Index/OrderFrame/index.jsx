@@ -73,7 +73,7 @@ const OrderFrame = () => {
         </div>
         {isMobile && (
         <div className={styles.bottomPartForMobile}>
-          <span className={styles.text}>Пн-Вс, 9:00-22:00</span>
+          <span className={styles.text}>Пн-Вс, 10:00-22:00</span>
           <span className={styles.text}>Итальянская ул., 16, 19 A</span>
           <div className={styles.logoBox}>
             <img src="/header/logo-small.svg" alt="main-logo" />

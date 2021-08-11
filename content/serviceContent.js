@@ -270,6 +270,7 @@ const content = {
         ),
         extraTitle: '',
         withFullWidth: true,
+        withFullHeight: true,
         withTopGap: true,
       },
       {

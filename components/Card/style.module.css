@@ -24,6 +24,10 @@
     }
   }
 
+  &.fullHeight {
+    max-height: 100%;
+  }
+
   &.small {
     &.active {
       min-height: 180px;
@@ -95,6 +99,10 @@
     .infoBlock {
       margin: 0;
     }
+  }
+
+  &.fullHeight {
+    position: relative;
   }
 }
 
