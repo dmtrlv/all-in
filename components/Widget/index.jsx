@@ -1,20 +1,20 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import cn from 'classnames';
-import styles from "./style.module.css";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
+import styles from './style.module.css';
 import { setWidget } from '../../action/app';
 
 const Widget = () => {
-  const {widget, iframeUrl} = useSelector(s => ({
+  const { widget, iframeUrl } = useSelector((s) => ({
     widget: s.app.widget,
     iframeUrl: s.app.iframeUrl,
-  }))
-  const dispatch = useDispatch()
+  }));
+  const dispatch = useDispatch();
   const iframeEl = useRef();
   const [closeBtnAnimation, setAnimation] = useState(false);
   const clickHandler = (e) => {
     if (widget && !iframeEl.current.contains(e.target)) {
-      dispatch(setWidget({widget: false}));
+      dispatch(setWidget({ widget: false }));
     }
   };
 
@@ -25,7 +25,6 @@ const Widget = () => {
     };
   }, [widget]);
 
-
   return (
     <div className={cn(styles.widgetContainer, {
       [styles.active]: widget,
@@ -35,7 +34,7 @@ const Widget = () => {
         <button
           type="button"
           className={styles.closeBtn}
-          onClick={() => dispatch(setWidget({widget: false}))}
+          onClick={() => dispatch(setWidget({ widget: false }))}
         >
           <img
             onMouseEnter={() => setAnimation(true)}
@@ -55,7 +54,7 @@ const Widget = () => {
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Widget;

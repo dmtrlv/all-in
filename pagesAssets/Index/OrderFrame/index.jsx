@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {setPartVisibility} from '../../../action/app';
 import cn from 'classnames';
-import { setWidget } from "../../../action/app";
+import { setPartVisibility, setWidget } from '../../../action/app';
 
 // customHooks
 import useScreen from '../../../customHooks/useScreen';
 
 // styles
 import styles from './styles.module.css';
-import Button from "../../../components/MainButton";
+import Button from '../../../components/MainButton';
 
 const iframeUrl = 'https://n451950.yclients.com/company:428417/idx:0/master?o=m1246829';
 const iosAppLink = 'https://apps.apple.com/ru/app/all-in-barbers-and-more/id1557949058';
@@ -28,7 +27,7 @@ const OrderFrame = () => {
 
   useEffect(() => {
     setTimeout(() => dispatch(setPartVisibility(true), 50));
-  }, [])
+  }, []);
 
   return (
     <div className={styles.frameWrapper}>
@@ -51,23 +50,29 @@ const OrderFrame = () => {
       </div>
       <div className={cn(styles.rightPart, {
         [styles.showRightPart]: showParts,
-      })}>
+      })}
+      >
         <div className={styles.slogan}>
-          <div className={styles.accent}>ALL IN *summer season</div>
+          <div className={styles.accent}>ALL IN *winter season</div>
         </div>
         <div className={styles.heading}>
           <h1 className={styles.mainTitle}>ЗА ВАШУ ГОЛОВУ МЫ ОТВЕЧАЕМ СВОЕЙ</h1>
         </div>
         <div className={styles.buttonsBlock}>
-          <Button className={styles.orderBtn} onClick={() => dispatch(setWidget({widget: true, iframeUrl}))} >Записаться</Button>
-          <a href={iosAppLink} target='_blank'>
+          <Button
+            className={styles.orderBtn}
+            onClick={() => dispatch(setWidget({ widget: true, iframeUrl }))}
+          >
+            Записаться
+          </Button>
+          <a href={iosAppLink} target="_blank" rel="noreferrer">
             <Button className={styles.storeLink} isStore>
-              <img className={styles.storeImg} src="store/apple.svg" alt='app-store-svg'/>
+              <img className={styles.storeImg} src="store/apple.svg" alt="app-store-svg" />
             </Button>
           </a>
-          <a href={googlePlayLink} target='_blank'>
+          <a href={googlePlayLink} target="_blank" rel="noreferrer">
             <Button className={styles.storeLink} isStore>
-              <img className={styles.storeImg} src="store/google.svg" alt='app-store-svg'/>
+              <img className={styles.storeImg} src="store/google.svg" alt="app-store-svg" />
             </Button>
           </a>
         </div>
