@@ -2,7 +2,6 @@
   position: absolute;
   left: 0;
   display: flex;
-  margin: 104px 0 0 0;
   width: 100%;
 
   @media screen and (max-width: 690px) {
@@ -14,6 +13,7 @@
 .leftPart {
   position: relative;
   display: flex;
+  top: -20px;
   justify-content: flex-end;
   margin: 0 54px 0 0;
   z-index: 12;
@@ -53,7 +53,7 @@
 }
 
 .rightPart {
-  margin: 0 0 0 54px;
+  margin: 142px 0 0 54px;
   width: 100%;
   min-width: 100%;
   position: relative;
