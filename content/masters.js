@@ -1,4 +1,4 @@
-const masters  = {
+const masters = {
   0: {
     title: 'МАСТЕРА ALL IN',
     content: [
@@ -42,13 +42,6 @@ const masters  = {
     link: 'https://n451950.yclients.com/company:428417?o=m1294711',
     reviews: 'https://n451950.yclients.com/company:428417/master-info:1294711?o=m1294711#reviews',
 
-  },
-  6: {
-    title: 'Павел Шипило',
-    description: 'Мастер ALL IN, 38 лет, Санкт-Петербург',
-    image: '/masters/pavel.png',
-    link: 'https://n451950.yclients.com/company:428417?o=m1287261',
-    reviews: 'https://n451950.yclients.com/company:428417/master-info:1287261?o=m1287261#reviews',
   },
 };
 
