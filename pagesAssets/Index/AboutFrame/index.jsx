@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import cn from 'classnames';
-import { useSelector } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import Navigation from '../../../components/Navigation';
 
-import Widget from './children/YandexWidget';
 import WhoWeAre from './children/WhoWeAre';
 import Masters from './children/Masters';
 
@@ -12,16 +11,12 @@ import useScreen from '../../../customHooks/useScreen';
 
 // styles
 import sharedStyles from '../../../sharedStyles/style.module.css';
-import styles from './style.module.css';
+import {setPartVisibility} from "../../../action/app";
 
 const navigationList = [
   {
     name: 'Кто мы',
     id: 'who',
-  },
-  {
-    name: 'Где найти',
-    id: 'find',
   },
   {
     name: 'Мастера',
@@ -31,24 +26,34 @@ const navigationList = [
 
 const contentMap = {
   who: <WhoWeAre />,
-  find: <Widget />,
   masters: <Masters />,
 };
 
 const AboutFrame = () => {
+  const dispatch = useDispatch();
   const [activeTab, setTab] = useState('who');
-  const { logoPosition } = useSelector((s) => ({
+  const {
+    logoPosition,
+    showParts
+  } = useSelector((s) => ({
     logoPosition: s.app.logoPosition,
+    showParts: s.app.showParts,
   }));
 
   const screen = useScreen();
   const isMobile = screen.width <= 690;
 
+  useEffect(() => {
+    setTimeout(() => dispatch(setPartVisibility(true), 50));
+  }, [])
+
   return (
     <div className={sharedStyles.frameWrapper}>
       {!isMobile ? (
         <>
-          <div className={sharedStyles.navigationBlock}>
+          <div className={cn(sharedStyles.navigationBlock, {
+            [sharedStyles.showNav]: showParts,
+          })}>
             <Navigation
               list={navigationList}
               active={activeTab}
@@ -56,31 +61,27 @@ const AboutFrame = () => {
               tabWidth={logoPosition}
             />
           </div>
-          <div className={cn(sharedStyles.content, sharedStyles.directionColumn)}>
+          <div className={cn(sharedStyles.content, sharedStyles.directionColumn, {
+            [sharedStyles.showContent]: showParts,
+          })}>
             {contentMap[activeTab]}
           </div>
         </>
       ) : (
         <>
-          <div className={cn(sharedStyles.sloganBlock, sharedStyles.left)}>
-            <div className={sharedStyles.slogan}>
-              или деятельности
-              <span className={sharedStyles.accent}>* ALL IN</span>
-            </div>
-          </div>
           <div className={sharedStyles.accordionsBlock}>
             {Object.entries(contentMap).map(([key, value]) => (
-              <div className={styles.accordionWrapper}>
+              <div className={sharedStyles.accordionWrapper}>
                 <div
-                  className={cn(styles.label, {
-                    [styles.active]: key === activeTab,
+                  className={cn(sharedStyles.label, {
+                    [sharedStyles.active]: key === activeTab,
                   })}
                   onClick={() => setTab(key)}
                 >
                   {navigationList.find((item) => item.id === key).name}
                 </div>
                 {key === activeTab && (
-                <div className={styles.accordionContent}>
+                <div className={sharedStyles.accordionContent}>
                   {value}
                 </div>
                 )}

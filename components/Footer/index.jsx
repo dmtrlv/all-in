@@ -21,7 +21,7 @@ const Footer = () => {
 
   const marginForFooterWrapper = !isMobile ? `${logoPosition + 108}px` : null;
   return (
-    <div className={styles.footerWrapper} style={{ marginLeft: marginForFooterWrapper }}>
+    <footer className={styles.footerWrapper} style={{ marginLeft: marginForFooterWrapper }}>
       <div className={styles.footerContent}>
         {!isMobile ? (
           <div className={cn(styles.info, {
@@ -74,7 +74,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 
