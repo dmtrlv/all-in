@@ -53,7 +53,7 @@ const OrderFrame = () => {
       })}
       >
         <div className={styles.slogan}>
-          <div className={styles.accent}>ALL IN *winter season</div>
+          <div className={styles.accent}>ALL IN *spring summer season</div>
         </div>
         <div className={styles.heading}>
           <h1 className={styles.mainTitle}>ЗА ВАШУ ГОЛОВУ МЫ ОТВЕЧАЕМ СВОЕЙ</h1>
