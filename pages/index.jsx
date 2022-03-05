@@ -38,6 +38,7 @@ const Index = () => {
           name="description"
           content="All IN - это не просто барбершоп.Это место, в котором мы собрали профессионалов с многолетним опытом работы и им доверяем.Мы создали пространство где можно не думать о результате, потому что он всегда будет предвосхищать, ведь за вашу голову мы отвечаем своей."
         />
+        <meta name="yandex-verification" content="27fb1634fa349ca9" />
         <link rel="icon" href="/header/all-in-logo.svg" />
         <link rel="canonical" href="https://all-in-barbers.com" />
         <meta name="viewport" content="width=device-width,initial-scale=1:2" />

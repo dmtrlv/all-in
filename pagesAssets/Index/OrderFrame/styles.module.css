@@ -13,9 +13,8 @@
 .leftPart {
   position: relative;
   display: flex;
-  top: -20px;
   justify-content: flex-end;
-  margin: 0 54px 0 0;
+  margin: 60px 54px 0 0;
   z-index: 12;
   background: white;
   transition: all 0.5s ease;
@@ -53,7 +52,7 @@
 }
 
 .rightPart {
-  margin: 142px 0 0 54px;
+  margin: 60px 0 0 54px;
   width: 100%;
   min-width: 100%;
   position: relative;
@@ -97,7 +96,7 @@
   align-items: center;
   position: relative;
   padding: 6px 82px 6px 0;
-  background: #d3301f;
+  background: #99ff99;
   color: white;
   width: 100%;
   overflow: hidden;
