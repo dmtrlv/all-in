@@ -1,0 +1,31 @@
+.button {
+  border: 1px solid black;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  outline: none;
+  background: transparent;
+  padding: 16px 36px;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 17px;
+  cursor: pointer;
+  transition: background 0.25s ease-in-out, color 0.25s ease-in-out;
+
+  &:hover {
+    background: black;
+    color: white;
+    transition: background 0.25s ease-in-out, color 0.25s ease-in-out;
+  }
+
+  &.store {
+    padding: 0;
+
+    &:hover {
+      background: transparent;
+    }
+  }
+
+  @media screen and (max-width: 690px) {
+    padding: 12px 22px
+  }
+}

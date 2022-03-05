@@ -14,17 +14,12 @@ const propTypes = {
   active: PropTypes.bool.isRequired,
   id: PropTypes.number,
   onClick: PropTypes.func,
-  titlePos: PropTypes.string,
-  titleWeight: PropTypes.string,
-  titleSize: PropTypes.string,
-  titleMaxWidth: PropTypes.number,
-  titleAlign: PropTypes.string,
-  titleInvert: PropTypes.bool,
   withFullWidth: PropTypes.bool,
   content: PropTypes.string,
   className: PropTypes.string,
   isSmall: PropTypes.bool,
   withRightGap: PropTypes.bool,
+  withFullHeight: PropTypes.bool,
 };
 
 const defaultProps = {
@@ -35,17 +30,12 @@ const defaultProps = {
   withTopGap: false,
   id: null,
   onClick: () => {},
-  titlePos: '',
-  titleWeight: '',
-  titleSize: '',
-  titleMaxWidth: null,
-  titleAlign: '',
-  titleInvert: false,
   withFullWidth: false,
   content: '',
   className: '',
   isSmall: false,
   withRightGap: false,
+  withFullHeight: false,
 };
 
 const Card = ({
@@ -58,16 +48,11 @@ const Card = ({
   active,
   id,
   onClick,
-  titlePos,
-  titleWeight,
-  titleSize,
-  titleMaxWidth,
-  titleAlign,
-  titleInvert,
   withFullWidth,
   content,
   className,
   isSmall,
+  withFullHeight,
 }) => (
   <div
     className={cn(styles.cardWrapper, {
@@ -76,24 +61,17 @@ const Card = ({
       [styles.active]: active,
       [styles.withFullWidth]: withFullWidth,
       [styles.small]: isSmall,
+      [styles.fullHeight]: withFullHeight,
       [className]: true,
     })}
     onClick={(e) => active ? () => {} : onClick(id, e)}
   >
-    <div className={cn(styles.titleBlock, {
-      [styles.center]: Boolean(titlePos === 'center'),
-    })}
+    <div className={styles.titleBlock}
     >
       <h2
         className={cn(styles.cardTitle, {
           [styles.active]: active,
-          [styles.invert]: titleInvert,
-          [styles[titlePos]]: Boolean(titlePos),
-          [styles[titleWeight]]: Boolean(titleWeight),
-          [styles[titleSize]]: Boolean(titleSize),
-          [styles[titleAlign]]: Boolean(titleAlign),
         })}
-        style={{ maxWidth: `${titleMaxWidth}px` }}
       >
         {title}
         {extraTitle ? (
@@ -105,6 +83,7 @@ const Card = ({
     {active ? (
       <div className={cn(styles.cardInfo, {
         [styles.withWhiteBg]: Boolean(content),
+        [styles.fullHeight]: withFullHeight,
       })}
       >
         {time && price ? (

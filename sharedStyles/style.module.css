@@ -18,12 +18,24 @@
 
 .navigationBlock {
   margin: 0 54px 0 0;
+  transform: translateX(-5000px);
+  transition: transform 0.5s ease-in-out;
+
+  &.showNav {
+    transform: translateX(0px);
+  }
 }
 
 .content {
   display: flex;
   width: 100%;
   margin: 0 0 20px 54px;
+  transform: translateX(5000px);
+  transition: transform 0.5s ease-in-out;
+
+  &.showContent {
+    transform: translateX(0px);
+  }
 
   &.directionColumn {
     flex-direction: column;
@@ -72,4 +84,46 @@
   top: 13px;
   font-weight: 900;
   font-size: 24px;
+}
+
+
+.accordionWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &:not(:last-child) {
+    margin: 0 0 70px 0;
+  }
+
+  &.disabled {
+    pointer-events: none;
+    .label {
+      color: var(--colorGray);
+    }
+  }
+}
+
+.label {
+  display: flex;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 20px;
+  width: 100%;
+  text-align: center;
+  justify-content: flex-start;
+  text-transform: uppercase;
+  color: black;
+
+  &:not(:first-child) {
+    margin: 70px 0 0 0;
+  }
+
+  &.active {
+    justify-content: center;
+  }
+}
+
+.accordionContent {
+  margin: 38px 0 0 0;
 }

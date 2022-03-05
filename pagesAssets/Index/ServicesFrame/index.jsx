@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import cn from 'classnames';
 
 // components
@@ -13,6 +13,7 @@ import Accordion from '../../../components/Accordion';
 
 // content
 import content from '../../../content/serviceContent';
+import {setPartVisibility} from "../../../action/app";
 
 const navigationList = [
   {
@@ -41,21 +42,29 @@ const accordionLabelMap = {
 };
 
 const ServicesFrame = () => {
+  const dispatch = useDispatch()
   const [activeTab, setTab] = useState('style');
   const [activeCard, setActiveCard] = useState(1);
-  const { logoPosition } = useSelector((s) => ({
+  const { logoPosition, showParts } = useSelector((s) => ({
     logoPosition: s.app.logoPosition,
+    showParts: s.app.showParts,
   }));
 
   useEffect(() => {
     setActiveCard(1);
   }, [activeTab]);
 
+  useEffect(() => {
+    setTimeout(() => dispatch(setPartVisibility(true), 50));
+  }, [])
+
   return (
     <>
       <div className={styles.hideForMobile}>
         <div className={sharedStyles.frameWrapper}>
-          <div className={sharedStyles.navigationBlock}>
+          <div className={cn(sharedStyles.navigationBlock, {
+            [sharedStyles.showNav]: showParts,
+          })}>
             <Navigation
               list={navigationList}
               active={activeTab}
@@ -64,7 +73,8 @@ const ServicesFrame = () => {
             />
           </div>
           <div className={cn(sharedStyles.content, {
-            [sharedStyles.directionColumn]: activeTab === 'king',
+            [sharedStyles.showContent]: showParts,
+            // [sharedStyles.directionColumn]: activeTab === 'king',
           })}
           >
             {content.contentMap[activeTab].map((tabContent) => (
@@ -100,11 +110,6 @@ const ServicesFrame = () => {
       </div>
       <div className={styles.hideForDesktop}>
         <div className={sharedStyles.frameWrapper}>
-          <div className={sharedStyles.sloganBlock}>
-            <div className={sharedStyles.slogan}>
-              *Девиз - краткое изречение, обычно
-            </div>
-          </div>
           <div className={sharedStyles.accordionsBlock}>
             {Object.entries(content.contentArr).map(([key, value]) => (
               <Accordion
