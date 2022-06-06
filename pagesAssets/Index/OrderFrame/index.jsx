@@ -10,7 +10,7 @@ import useScreen from '../../../customHooks/useScreen';
 import styles from './styles.module.css';
 import Button from '../../../components/MainButton';
 
-const iframeUrl = 'https://n451950.yclients.com/company:428417/idx:0/master?o=m1246829';
+const iframeUrl = 'https://n451950.yclients.com/company:428417';
 const iosAppLink = 'https://apps.apple.com/ru/app/all-in-barbers-and-more/id1557949058';
 const googlePlayLink = 'https://play.google.com/store/apps/details?id=com.yclients.mobile.s428417&hl=ru&gl=US';
 
