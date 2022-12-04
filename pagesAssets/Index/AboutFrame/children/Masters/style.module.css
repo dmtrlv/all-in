@@ -3,7 +3,7 @@
   box-shadow: 0 4px 2px rgba(0, 0, 0, 0.15);
   display: flex;
   width: 100%;
-  height: 448px;
+  height: 500px;
   max-width: 700px;
   overflow: hidden;
   touch-action: pan-y;
@@ -45,16 +45,16 @@
 
     .content {
       max-width: 100%;
-      padding: 0 25px;
+      padding: 25px;
     }
 
     .textBlock {
-      margin: 15px 0 34px 0;
+      margin: 0 0 34px 0;
     }
 
     .cardTitle {
       position: absolute;
-      bottom: -16px;
+      bottom: -12px;
       left: -14px;
       font-size: 42px;
 
@@ -84,6 +84,7 @@
 
   .image {
     height: 100%;
+    display: flex;
   }
 
 
@@ -101,6 +102,10 @@
 .content {
   color: black;
   min-width: 470px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   @media screen  and (max-width: 690px){
     min-width: auto;
@@ -109,25 +114,29 @@
 }
 
 .cardTitle {
-  font-size: 47px;
+  font-size: 45px;
   line-height: 100%;
   font-weight: 900;
   z-index: 10;
   position: relative;
+  text-align: right;
 
   @media screen  and (max-width: 690px){
     font-size: 26px;
+    text-align: center;
   }
 }
 
 .description {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 100%;
-  margin: 4px 0 0 0;
+  margin: 12px 0 0 0;
   font-weight: 300;
+  text-align: right;
 
   @media screen  and (max-width: 690px){
-    font-size: 10px;
+    font-size: 12px;
+    text-align: center;
   }
 }
 
@@ -156,7 +165,7 @@
   display: flex;
   margin: 25px 0;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   width: 100%;
   max-width: 700px;
 }
@@ -165,4 +174,37 @@
   background: none;
   border: none;
   font-size: 15px;
+  cursor: pointer;
+
+  &.right {
+    transform: rotate(90deg);
+  }
+
+  &.left {
+    transform: rotate(270deg);
+  }
+}
+
+.cardsContainer {
+  overflow: hidden;
+  padding: 10px;
+}
+
+.buttonBlock {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 24px 0 0 0;
+
+  :first-child {
+    margin: 0 8px 0 0;
+  }
+
+  :last-child {
+    margin: 0 0 0 8px;
+  }
+
+  @media screen and (max-width: 690px) {
+    justify-content: center;
+  }
 }

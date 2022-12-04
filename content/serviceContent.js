@@ -11,58 +11,34 @@ const content = {
           title: 'Мужская   стрижка',
           extraTitle: '',
           time: '60',
-          price: '2000.00',
+          price: '2200.00',
           withTopGap: false,
-          titlePos: 'leftTop',
-          titleWeight: 'bold',
-          titleSize: 'large',
-          titleMaxWidth: 180,
-          titleAlign: null,
-          titleInvert: false,
         },
         {
           id: 2,
           title: 'Коррекция бороды',
           extraTitle: 'и усов',
           time: '30',
-          price: '1000.00',
+          price: '1200.00',
           withTopGap: true,
-          titlePos: 'leftTop',
-          titleWeight: 'bold',
-          titleSize: 'large',
-          titleMaxWidth: 180,
-          titleAlign: null,
-          titleInvert: false,
         },
       ],
       [
         {
           id: 3,
-          title: ' Детская стрижка от 7 лет',
+          title: 'Детская стрижка от 7 лет',
           extraTitle: '',
           time: '60',
-          price: '1500.00',
+          price: '1600.00',
           withTopGap: false,
-          titlePos: 'center',
-          titleWeight: 'bold',
-          titleSize: 'small',
-          titleMaxWidth: 66,
-          titleAlign: 'alignCenter',
-          titleInvert: false,
         },
         {
           id: 4,
           title: 'Моделирование бороды',
           extraTitle: '',
           time: '30',
-          price: '1500.00',
+          price: '1600.00',
           withTopGap: true,
-          titlePos: 'bottomLeft',
-          titleWeight: null,
-          titleSize: 'large',
-          titleMaxWidth: 158,
-          titleAlign: null,
-          titleInvert: false,
         },
       ],
       [
@@ -71,28 +47,16 @@ const content = {
           title: 'Стрижка под машинку',
           extraTitle: '',
           time: '30',
-          price: '1000.00',
+          price: '1200.00',
           withTopGap: false,
-          titlePos: 'rightTop',
-          titleWeight: 'bold',
-          titleSize: 'medium',
-          titleMaxWidth: 120,
-          titleAlign: 'alignRight',
-          titleInvert: false,
         },
         {
           id: 6,
           title: 'Бритье головы',
           extraTitle: '',
           time: '60',
-          price: '2000.00',
+          price: '2200.00',
           withTopGap: true,
-          titlePos: 'bottom',
-          titleWeight: 'bold',
-          titleSize: 'large',
-          titleMaxWidth: 152,
-          titleAlign: null,
-          titleInvert: true,
         },
       ],
     ],
@@ -112,31 +76,19 @@ const content = {
               </span>
             ),
           extraTitle: '',
-          time: '90',
-          price: '2600.00',
+          time: '75',
+          price: '2800.00',
           withTopGap: false,
-          titlePos: 'center',
-          titleWeight: 'bold',
-          titleSize: 'small',
-          titleMaxWidth: 140,
-          titleAlign: 'alignCenter',
-          titleInvert: false,
         },
       ],
       [
         {
           id: 2,
-          title: 'Стрижка + моделирование бороды',
+          title: 'Стрижка + моделирование  бороды',
           extraTitle: '',
-          time: '75',
-          price: '3000.00',
+          time: '90',
+          price: '3300.00',
           withTopGap: false,
-          titlePos: 'leftTop',
-          titleWeight: null,
-          titleSize: 'large',
-          titleMaxWidth: 108,
-          titleAlign: null,
-          titleInvert: false,
         },
       ],
       [
@@ -147,12 +99,6 @@ const content = {
           time: '60',
           price: '1600.00',
           withTopGap: false,
-          titlePos: 'rightTop',
-          titleWeight: 'bold',
-          titleSize: 'normal',
-          titleMaxWidth: 108,
-          titleAlign: 'alignRight',
-          titleInvert: false,
         },
       ],
     ],
@@ -163,26 +109,45 @@ const content = {
           title: '*Королевский подход',
           content: (
             <span className={styles.contentText}>
-              *Королевское бритье - это не просто бритье в его обычном понимании.
-              Это СПА процедура на 60 минут с использованием косметики Truefitt & Hill.
+              Королевское бритье с использование косметики TRUEFITT and HILL
               <br />
+              Это не просто процесс по коррекции бороды или удалению щетины,
+              а еще целая спа процедура с уходом для лица!
               <br />
-              Инструменты Вашего церюльника будут исключительно из золота и стали,
-              которая используется для производства спутников и космических кораблей (возможно).
-              <br />
-              <br />
-              Вам нальют дорогой виски, предложат сигару прямиком с жаркой Кубы.
+              <ul>
+                Этапы королевского бритья:
+                <li>
+                  Мастер изучает лицо клиента.
+                  Он должен заранее увидеть, где находятся родинки, шрамы и т.д.
+                </li>
+                <li>
+                  Нанесение компресса с использованием масел для бритья.
+                  Они смягчают щетину и приподнимают   волосяной покров!
+                </li>
+                <li>Нанесение пены</li>
+                <li>
+                  Опасное Бритье - самая ответственная часть процедуры.
+                  Мы используем полностью стерильные инструменты. Лезвия сменные.
+                </li>
+                <li>
+                  Контрастный  компресс.
+                  Процедура королевского бритья вызывает у клиентов только приятные ощущения.
+                  Однако даже при таком деликатном обращении кожа
+                  любого типа испытывает своеобразный стресс.
+                  Использование алюмокалиевых квасцов (природный антисептик )
+                </li>
+                <li>
+                  После мастер массирующими движениями наносит
+                  бальзам после бритья тем самым увлажняя кожу.
+                </li>
+                <li>Завершающим аккордом королевского бритья - одеколоны TRUEFITT and HILL</li>
+              </ul>
             </span>
           ),
           extraTitle: '',
+          withRightGap: true,
           withFullWidth: true,
           withTopGap: false,
-          titlePos: 'leftTop',
-          titleWeight: 'bold',
-          titleSize: 'extraLg',
-          titleMaxWidth: 541,
-          titleAlign: 'alignRight',
-          titleInvert: false,
         },
       ],
       [
@@ -192,14 +157,8 @@ const content = {
           extraTitle: '',
           withFullWidth: false,
           time: '60',
-          price: '2000.00',
+          price: '2200.00',
           withTopGap: false,
-          titlePos: 'bottom',
-          titleWeight: 'bold',
-          titleSize: 'large',
-          titleMaxWidth: 108,
-          titleAlign: 'alignRight',
-          titleInvert: false,
           withRightGap: true,
         },
 
@@ -207,15 +166,9 @@ const content = {
           id: 3,
           title: 'Стрижка + Королевское бритье',
           extraTitle: '',
-          time: '60',
-          price: '1600.00',
-          withTopGap: false,
-          titlePos: 'leftTop',
-          titleWeight: 'bold',
-          titleSize: 'large',
-          titleMaxWidth: 108,
-          titleAlign: 'alignRight',
-          titleInvert: false,
+          time: '90',
+          price: '3800.00',
+          withTopGap: true,
         },
       ],
     ],
@@ -228,28 +181,16 @@ const content = {
         title: 'Мужская   стрижка',
         extraTitle: '',
         time: '60',
-        price: '2000.00',
+        price: '2200.00',
         withTopGap: true,
-        titlePos: 'leftTop',
-        titleWeight: 'bold',
-        titleSize: 'large',
-        titleMaxWidth: 180,
-        titleAlign: null,
-        titleInvert: false,
       },
       {
         id: 2,
         title: 'Коррекция бороды',
         extraTitle: 'и усов',
         time: '30',
-        price: '1000.00',
+        price: '1200.00',
         withTopGap: true,
-        titlePos: 'leftTop',
-        titleWeight: 'bold',
-        titleSize: 'large',
-        titleMaxWidth: 180,
-        titleAlign: null,
-        titleInvert: false,
       },
 
       {
@@ -257,56 +198,32 @@ const content = {
         title: ' Детская стрижка от 7 лет',
         extraTitle: '',
         time: '60',
-        price: '1500.00',
+        price: '1600.00',
         withTopGap: true,
-        titlePos: 'center',
-        titleWeight: 'bold',
-        titleSize: 'small',
-        titleMaxWidth: 66,
-        titleAlign: 'alignCenter',
-        titleInvert: false,
       },
       {
         id: 4,
         title: 'Моделирование бороды',
         extraTitle: '',
         time: '30',
-        price: '1500.00',
+        price: '1600.00',
         withTopGap: true,
-        titlePos: 'bottomLeft',
-        titleWeight: null,
-        titleSize: 'large',
-        titleMaxWidth: 158,
-        titleAlign: null,
-        titleInvert: false,
       },
       {
         id: 5,
         title: 'Стрижка под машинку',
         extraTitle: '',
         time: '30',
-        price: '1000.00',
+        price: '1200.00',
         withTopGap: true,
-        titlePos: 'rightTop',
-        titleWeight: 'bold',
-        titleSize: 'medium',
-        titleMaxWidth: 120,
-        titleAlign: 'alignRight',
-        titleInvert: false,
       },
       {
         id: 6,
         title: 'Бритье головы',
         extraTitle: '',
         time: '60',
-        price: '2000.00',
+        price: '2200.00',
         withTopGap: true,
-        titlePos: 'bottom',
-        titleWeight: 'bold',
-        titleSize: 'large',
-        titleMaxWidth: 152,
-        titleAlign: null,
-        titleInvert: true,
       },
     ],
 
@@ -322,29 +239,17 @@ const content = {
             коррекция бороды и усов
           </span>),
         extraTitle: '',
-        time: '90',
-        price: '2600.00',
+        time: '75',
+        price: '2800.00',
         withTopGap: true,
-        titlePos: 'center',
-        titleWeight: 'bold',
-        titleSize: 'small',
-        titleMaxWidth: 140,
-        titleAlign: 'alignCenter',
-        titleInvert: false,
       },
       {
         id: 2,
         title: 'Стрижка + моделирование бороды',
         extraTitle: '',
-        time: '75',
-        price: '3000.00',
+        time: '90',
+        price: '3300.00',
         withTopGap: true,
-        titlePos: 'leftTop',
-        titleWeight: null,
-        titleSize: 'large',
-        titleMaxWidth: 108,
-        titleAlign: null,
-        titleInvert: false,
       },
       {
         id: 3,
@@ -353,12 +258,6 @@ const content = {
         time: '60',
         price: '1600.00',
         withTopGap: true,
-        titlePos: 'rightTop',
-        titleWeight: 'bold',
-        titleSize: 'normal',
-        titleMaxWidth: 108,
-        titleAlign: 'alignRight',
-        titleInvert: false,
       },
     ],
 
@@ -368,26 +267,45 @@ const content = {
         title: '*Королевский подход',
         content: (
           <span className={styles.contentText}>
-            *Королевское бритье - это не просто бритье в его обычном понимании.
-            Это СПА процедура на 60 минут с использованием косметики Truefitt & Hill.
+            Королевское бритье с использование косметики TRUEFITT and HILL
             <br />
+            Это не просто процесс по коррекции бороды или удалению щетины,
+            а еще целая спа процедура с уходом для лица!
             <br />
-            Инструменты Вашего церюльника будут исключительно из золота и стали,
-            которая используется для производства спутников и космических кораблей (возможно).
-            <br />
-            <br />
-            Вам нальют дорогой виски, предложат сигару прямиком с жаркой Кубы.
+            <ul>
+              Этапы королевского бритья:
+              <li>
+                Мастер изучает лицо клиента.
+                Он должен заранее увидеть, где находятся родинки, шрамы и т.д.
+              </li>
+              <li>
+                Нанесение компресса с использованием масел для бритья.
+                Они смягчают щетину и приподнимают   волосяной покров!
+              </li>
+              <li>Нанесение пены</li>
+              <li>
+                Опасное Бритье - самая ответственная часть процедуры.
+                Мы используем полностью стерильные инструменты. Лезвия сменные.
+              </li>
+              <li>
+                Контрастный  компресс.
+                Процедура королевского бритья вызывает у клиентов только приятные ощущения.
+                Однако даже при таком деликатном обращении кожа
+                любого типа испытывает своеобразный стресс.
+                Использование алюмокалиевых квасцов (природный антисептик )
+              </li>
+              <li>
+                После мастер массирующими движениями наносит
+                бальзам после бритья тем самым увлажняя кожу.
+              </li>
+              <li>Завершающим аккордом королевского бритья - одеколоны TRUEFITT and HILL</li>
+            </ul>
           </span>
         ),
         extraTitle: '',
         withFullWidth: true,
+        withFullHeight: true,
         withTopGap: true,
-        titlePos: 'leftTop',
-        titleWeight: 'bold',
-        titleSize: 'extraLg',
-        titleMaxWidth: 541,
-        titleAlign: 'alignRight',
-        titleInvert: false,
       },
       {
         id: 2,
@@ -395,28 +313,16 @@ const content = {
         extraTitle: '',
         withFullWidth: false,
         time: '60',
-        price: '2000.00',
+        price: '2200.00',
         withTopGap: true,
-        titlePos: 'bottom',
-        titleWeight: 'bold',
-        titleSize: 'large',
-        titleMaxWidth: 108,
-        titleAlign: 'alignRight',
-        titleInvert: false,
       },
       {
         id: 3,
         title: 'Стрижка + Королевское бритье',
         extraTitle: '',
-        time: '60',
-        price: '1600.00',
+        time: '90',
+        price: '3800.00',
         withTopGap: true,
-        titlePos: 'leftTop',
-        titleWeight: 'bold',
-        titleSize: 'large',
-        titleMaxWidth: 108,
-        titleAlign: 'alignRight',
-        titleInvert: false,
       },
     ],
     nails: null,

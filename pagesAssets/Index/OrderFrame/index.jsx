@@ -1,107 +1,90 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import cn from 'classnames';
+import { setPartVisibility, setWidget } from '../../../action/app';
 
 // customHooks
 import useScreen from '../../../customHooks/useScreen';
 
 // styles
 import styles from './styles.module.css';
+import Button from '../../../components/MainButton';
+
+const iframeUrl = 'https://b451950.yclients.com/company/428417/select-master?o=';
+const iosAppLink = 'https://apps.apple.com/ru/app/all-in-barbers-and-more/id1557949058';
+const googlePlayLink = 'https://play.google.com/store/apps/details?id=com.yclients.mobile.s428417&hl=ru&gl=US';
 
 const OrderFrame = () => {
-  const iframeEl = useRef();
-  const [widget, setWidget] = useState(false);
-  const [closeBtnAnimation, setAnimation] = useState(false);
+  const dispatch = useDispatch();
   const [showGallery, setGalleryVisibility] = useState(false);
   const screen = useScreen();
   const isMobile = screen.width <= 690;
-  const { logoPosition, firstHeaderItemPos } = useSelector((s) => ({
+  const { logoPosition, firstHeaderItemPos, showParts } = useSelector((s) => ({
     logoPosition: s.app.logoPosition,
     firstHeaderItemPos: s.app.firstHeaderItemPos,
+    showParts: s.app.showParts,
   }));
 
-  const clickHandler = (e) => {
-    if (widget && !iframeEl.current.contains(e.target)) {
-      setWidget(false);
-    }
-  };
-
   useEffect(() => {
-    document.addEventListener('click', clickHandler);
-    return () => {
-      document.removeEventListener('click', clickHandler);
-    };
-  }, [widget]);
+    setTimeout(() => dispatch(setPartVisibility(true), 50));
+  }, []);
 
   return (
     <div className={styles.frameWrapper}>
       <div
         className={cn(styles.leftPart, {
+          [styles.showLeftPart]: showParts,
           [styles.fullWidth]: showGallery,
         })}
-        style={{ maxWidth: `${logoPosition || firstHeaderItemPos}px` }}
         onMouseEnter={!isMobile ? () => setGalleryVisibility(true) : () => {}}
         onMouseLeave={!isMobile ? () => setGalleryVisibility(false) : () => {}}
         onClick={isMobile ? () => setGalleryVisibility(!showGallery) : () => {}}
+        style={{ maxWidth: `${logoPosition || firstHeaderItemPos}px` }}
       >
-        <img src="/gallery.png" className={styles.gallery} alt="gallery" srcSet="/gallery.png 2x" />
+        <img
+          src="/winter-gallery.png"
+          className={styles.gallery}
+          alt="gallery"
+          srcSet="/winter-gallery.png 2x"
+        />
       </div>
-      <div className={styles.rightPart}>
+      <div className={cn(styles.rightPart, {
+        [styles.showRightPart]: showParts,
+      })}
+      >
         <div className={styles.slogan}>
-          <div className={styles.accent}>ДЕВИЗ*</div>
-          <div className={styles.sloganText}>
-            {isMobile ? '' : '*Девиз - краткое изречение, обычно выражающее руководящую идею поведения или деятельности.'}
-          </div>
+          <div className={styles.accent}>ALL IN *winter season</div>
         </div>
         <div className={styles.heading}>
           <h1 className={styles.mainTitle}>ЗА ВАШУ ГОЛОВУ МЫ ОТВЕЧАЕМ СВОЕЙ</h1>
-          <div className={styles.description}>
-            <p className={styles.subTitle}>
-              А также, отвечаем и за свои слова. Мы сделаем качественно и красиво.
-              Вы сможете отвлечься от всех проблем. В общем, меньше слов, больше дел. Ждём Вас!
-            </p>
-          </div>
         </div>
-        <button className={styles.button} type="button" onClick={() => setWidget(true)}>
-          Записаться
-        </button>
+        <div className={styles.buttonsBlock}>
+          <Button
+            className={styles.orderBtn}
+            onClick={() => dispatch(setWidget({ widget: true, iframeUrl }))}
+          >
+            Записаться
+          </Button>
+          <a href={iosAppLink} target="_blank" rel="noreferrer">
+            <Button className={styles.storeLink} isStore>
+              <img className={styles.storeImg} src="/store/apple.svg" alt="app-store-svg" />
+            </Button>
+          </a>
+          <a href={googlePlayLink} target="_blank" rel="noreferrer">
+            <Button className={styles.storeLink} isStore>
+              <img className={styles.storeImg} src="/store/google.svg" alt="app-store-svg" />
+            </Button>
+          </a>
+        </div>
         {isMobile && (
         <div className={styles.bottomPartForMobile}>
-          <span className={styles.text}>Пн-Вс, 9:00-22:00</span>
+          <span className={styles.text}>Пн-Вс, 10:00-22:00</span>
           <span className={styles.text}>Итальянская ул., 16, 19 A</span>
           <div className={styles.logoBox}>
-            <img src="/header/logo-small.svg" alt="main-logo" />
+            <img src="/header/all-in-studio.png" alt="main-logo" />
           </div>
         </div>
         )}
-      </div>
-      <div className={cn(styles.widgetContainer, {
-        [styles.active]: widget,
-      })}
-      >
-        <div className={styles.iframeContainer}>
-          <button
-            type="button"
-            className={styles.closeBtn}
-            onClick={() => setWidget(false)}
-          >
-            <img
-              onMouseEnter={() => setAnimation(true)}
-              onMouseLeave={() => setAnimation(false)}
-              className={cn(styles.icon, {
-                [styles.spin]: closeBtnAnimation,
-              })}
-              src="/close.svg"
-              alt="close-icon"
-            />
-          </button>
-          <iframe
-            ref={iframeEl}
-            className={styles.iframe}
-            title="widget"
-            src="https://n451950.yclients.com/company:428417/idx:0/master?o=m1246829"
-          />
-        </div>
       </div>
     </div>
   );

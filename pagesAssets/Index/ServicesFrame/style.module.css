@@ -14,7 +14,7 @@
     margin: 0 !important;
 
     &:not(:first-child) {
-      margin: 20px 0 0 0 !important;
+ /*     margin: 20px 0 0 0 !important; */
 
       .cardWrapper {
         margin: 0 500px;
